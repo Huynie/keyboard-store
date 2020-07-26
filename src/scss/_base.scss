@@ -1,0 +1,22 @@
+//base
+$fontColor: white;
+$typeFace: helvetica;
+*{
+    margin: 0;
+    padding: 0;
+}
+//SCROLL BAR
+::-webkit-scrollbar{
+    width: 10px;
+
+    &-track{
+        background: rgb(34, 34, 34);
+    }
+    &-thumb{
+        background: rgb(82, 82, 82);
+
+        &:hover{
+            background: gray;
+        }
+    }
+}
