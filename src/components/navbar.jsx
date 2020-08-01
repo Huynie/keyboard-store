@@ -6,15 +6,23 @@ const NavBar = () => {
     <Router>
       <header>
         <nav className="nav">
+          <input type="checkbox" className="toggle" />
+          <div className="hamburger">
+            <div></div>
+          </div>
           <div className="nav__brand">Brand</div>
-          <button className="nav__menu">
-            <Link to="/Home">Home</Link>
-          </button>
-          <button className="nav__menu">About</button>
-          <button className="nav__menu">
-            <Link to="/Store">Store</Link>
-          </button>
-          <button className="nav__menu">Contact</button>
+          <ul className="nav__menu">
+            <li className="nav__menu--items">
+              <Link to="/Store">Store</Link>
+            </li>
+            <li className="nav__menu--items">
+              <Link to="/About">About</Link>
+            </li>
+            <li className="nav__menu--items">
+              <Link to="/Contact">Contact</Link>
+            </li>
+            <li className="nav__menu--items"></li>
+          </ul>
         </nav>
       </header>
     </Router>

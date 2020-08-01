@@ -7,6 +7,8 @@ import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./components/home";
 import Store from "./components/store";
+/* import About from "./components/about";
+import Contact from "./components/contact"; */
 
 class App extends Component {
   render() {
