@@ -1,0 +1,22 @@
+//FOOTER
+footer {
+  padding: 20px 50px;
+  font: normal normal 100 14px $typeFace;
+  letter-spacing: 0.2em;
+  background-color: $background-color;
+  color: $fontColor;
+
+  .social {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 30px 30px;
+    }
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}

@@ -1,29 +1,60 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //components
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./components/home";
 import Store from "./components/store";
-/* import About from "./components/about";
-import Contact from "./components/contact"; */
+import Cart from "./components/cart";
+import about from "./components/about";
+import contact from "./components/contact";
 
-class App extends Component {
-  render() {
-    return (
+export default function App() {
+  const [cart, setCart] = useState([]);
+  const addToCart = (product) => {
+    console.log("added to cart");
+    setCart([...cart, { ...product }]);
+  };
+  const removeFromCart = (productToRemove) => {
+    setCart(cart.filter((product) => product !== productToRemove));
+  };
+  const [products] = useState([
+    {
+      name: "Item 1",
+      price: "$90.00",
+      image: require("./images/k6.png"),
+    },
+    {
+      name: "Item 2",
+      price: "$80.00",
+      image: require("./images/k7.png"),
+    },
+  ]);
+  return (
+    <>
       <Router>
-        <React.Fragment>
-          <NavBar />
-          <Route exact path="/Home" component={Home} />
-          <Route exact path="/Store" component={Store} />
-          <Home />
-          <Footer />
-        </React.Fragment>
+        <NavBar cart={cart} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={about} />
+          <Route
+            path="/store"
+            /* component={Store} */ render={(props) => (
+              <Store {...props} products={products} addToCart={addToCart} />
+            )}
+          />
+          <Route
+            path="/cart"
+            /* component={Cart} */ render={(props) => (
+              <Cart {...props} cart={cart} removeFromCart={removeFromCart} />
+            )}
+          />
+          <Route path="/contact" component={contact} />
+        </Switch>
+        <Footer />
       </Router>
-    );
-  }
+    </>
+  );
 }
-
-export default App;

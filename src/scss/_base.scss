@@ -1,22 +1,29 @@
 //base
-$fontColor: white;
+$fontColor: rgb(181, 207, 204);
 $typeFace: helvetica;
-*{
-    margin: 0;
-    padding: 0;
+$background-color: rgb(50, 76, 92);
+$accentColor: rgb(235, 164, 57);
+$priceColor: rgb(91, 223, 172);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: $background-color;
 }
 //SCROLL BAR
-::-webkit-scrollbar{
-    width: 10px;
+::-webkit-scrollbar {
+  width: 10px;
 
-    &-track{
-        background: rgb(34, 34, 34);
-    }
-    &-thumb{
-        background: rgb(82, 82, 82);
+  &-track {
+    background: rgb(34, 34, 34);
+  }
+  &-thumb {
+    background: rgb(82, 82, 82);
 
-        &:hover{
-            background: gray;
-        }
+    &:hover {
+      background: gray;
     }
+  }
 }

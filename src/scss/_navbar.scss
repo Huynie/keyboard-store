@@ -1,25 +1,32 @@
+//NAVIGATION
 .nav {
-  background: black;
-  position: sticky;
+  top: 0;
+  background: $background-color;
+  position: fixed;
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  height: 50px;
+  width: 100vw;
+  height: 60px;
   margin: auto;
 
   &__brand {
-    margin: 15px 0;
-    color: $fontColor;
-    font: normal normal 300 20px $typeFace;
-    letter-spacing: 0.03em;
+    margin: 10px 0;
+    z-index: 1;
+
+    & a {
+      color: $accentColor;
+      font: normal normal 700 30px $typeFace;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
   }
   &__menu {
-    background: gray;
+    background: $accentColor;
     height: 100vh;
     width: 40vw;
     position: absolute;
-    left: -40vh;
-    z-index: 0;
+    left: -40vw;
+    z-index: 998;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -28,19 +35,30 @@
     transition: left 0.4s ease, opacity 0.4s ease;
 
     &--items {
-      list-style-type: none;
+      list-style: none;
       margin: 15px 0;
-      font: normal normal 300 20px $typeFace;
+      font: normal normal 700 20px $typeFace;
       letter-spacing: 0.03em;
+      text-decoration: none;
 
       & a {
-        color: $fontColor;
+        color: $background-color;
         text-decoration: none;
       }
     }
+    &--transparency {
+      background-color: rgba(26, 68, 107, 0.4);
+      position: absolute;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
   }
   .hamburger {
-    z-index: 1;
+    z-index: 999;
     position: fixed;
     left: 0;
     margin: 10px;
@@ -52,20 +70,22 @@
     justify-content: center;
     //middle line
     & > div {
+      left: 0;
       position: relative;
       width: 100%;
       height: 2px;
-      background: white;
+      background: $accentColor;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.4s ease;
+      /* transition-delay: -0.08s; */
       //add top and bottom lines
       &:before,
       &:after {
         content: "";
         position: absolute;
-        z-index: 1;
+        z-index: 999;
         top: -8px;
         width: 100%;
         height: 2px;
@@ -77,29 +97,57 @@
     }
   }
   .toggle {
-    z-index: 2;
+    z-index: 1000;
     position: absolute;
     left: 0;
     width: 25px;
     height: 25px;
     margin: 10px;
     opacity: 0;
+
+    &:checked ~ .nav__menu--transparency {
+      /* left: 28vw; */
+      visibility: visible;
+      z-index: 997;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
     //rotate lines
     &:checked + .hamburger > div {
+      /* left: 28vw; */
+      background: $background-color;
       transform: rotate(45deg);
+      transition-delay: 0.05s;
       //turn top and bottom lines into X
       &:before,
       &:after {
-        transform: rotate(90deg);
+        background: $background-color;
         top: 0;
-        /* transform: translateY(8px); */
+        transform: rotate(90deg);
+        /* transition: top 0.8s;
+        transition-delay: rotation 0.5s; */
       }
     }
     &:checked ~ .nav__menu {
       left: 0;
       opacity: 1;
       transition: left 0.4s ease, opacity 0.4s ease;
-      /* transition-duration: 1s; */
     }
+  }
+}
+.announcement {
+  width: 100vw;
+  top: 59px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $background-color;
+  font: normal normal 700 18px $typeFace;
+  height: 70px;
+  background: $accentColor;
+  p {
+    text-align: center;
+    padding: 12px 15px;
   }
 }
