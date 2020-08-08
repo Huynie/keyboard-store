@@ -23,19 +23,19 @@ export default function App() {
   const [products] = useState([
     {
       name: "Item 1",
-      price: "$90.00",
+      price: 90.0,
       image: require("./images/k6.png"),
     },
     {
       name: "Item 2",
-      price: "$80.00",
+      price: 80.0,
       image: require("./images/k7.png"),
     },
   ]);
   return (
     <>
       <Router>
-        <NavBar cart={cart} />
+        <NavBar cart={cart} removeFromCart={removeFromCart} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={about} />

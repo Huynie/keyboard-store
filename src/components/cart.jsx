@@ -1,14 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function Cart({ cart, removeFromCart }) {
   return (
     <>
       <div className="cart">
         <h1>Cart</h1>
-        <button>
-          <Link to="/store">go to store</Link>
-        </button>
         {cart.map((product, idx) => {
           return (
             <div className="cart__list" key={idx}>

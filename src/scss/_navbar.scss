@@ -10,13 +10,22 @@
   margin: auto;
 
   &__brand {
-    margin: 10px 0;
+    margin: 15px auto;
     z-index: 1;
+    background: $accentColor;
+    height: 24px;
+    width: 108px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     & a {
-      color: $accentColor;
-      font: normal normal 700 30px $typeFace;
-      letter-spacing: 0.03em;
+      height: 45px;
+      width: 110px;
+      background: transparent;
+      color: $background-color;
+      font: normal normal 900 30px $typeFace;
+      letter-spacing: -0.06em;
       text-decoration: none;
     }
   }
@@ -132,6 +141,198 @@
       left: 0;
       opacity: 1;
       transition: left 0.4s ease, opacity 0.4s ease;
+    }
+    &__cart {
+      position: absolute;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      opacity: 0;
+      z-index: 1001;
+
+      &:checked ~ .nav__cart {
+        right: 0px;
+        transition: right 0.4s ease;
+        &__icon {
+          color: $background-color;
+          background: $accentColor;
+        }
+      }
+    }
+  }
+  &__cart {
+    background: rgb(28, 63, 83);
+    height: 100vh;
+    width: 80vw;
+    right: -80vw;
+    z-index: 500;
+    display: block;
+    opacity: 1;
+    position: absolute;
+    transition: right 0.4s ease;
+
+    h1 {
+      display: block;
+      width: max-content;
+      top: 15px;
+      font: normal normal 700 25px $typeFace;
+      color: $accentColor;
+      margin: 20px auto;
+    }
+    hr {
+      display: block;
+      height: 1px;
+      width: 85%;
+      margin: 30px auto;
+      border: 0;
+      background: $accentColor;
+    }
+    &--icon {
+      border-color: $accentColor;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 5px;
+      background: $background-color;
+      position: absolute;
+      right: 0;
+      height: 50px;
+      width: 50px;
+      font-size: 20px;
+      margin: 3px;
+      z-index: 998;
+      color: $accentColor;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        text-decoration: none;
+        color: $accentColor;
+      }
+    }
+    &--list {
+      display: block;
+    }
+    &--items {
+      /* width: max-content; */
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-template-rows: 1fr 1fr;
+      margin: 30px 20px;
+      align-self: start;
+    }
+    img {
+      grid-column: 1/2;
+      grid-row: 1/3;
+      height: 80px;
+      width: 80px;
+      object-fit: cover;
+      align-self: center;
+      padding: 0 20px 0 0;
+    }
+    &--name {
+      grid-row: 1/2;
+      grid-column: 2/3;
+      color: $fontColor;
+      font: normal normal 700 20px $typeFace;
+      letter-spacing: 0.2em;
+      align-self: start;
+    }
+    &--price {
+      grid-row: 1/2;
+      grid-column: 2/3;
+      font: normal normal 600 14px $typeFace;
+      letter-spacing: 0.1em;
+      color: $priceColor;
+      align-self: end;
+    }
+    &--buttons {
+      grid-row: 2/3;
+      grid-column: 2/3;
+      display: flex;
+      margin: 10px 0;
+    }
+    &--remove {
+      border-color: $accentColor;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 5px;
+      background: transparent;
+      font: normal normal 700 12px $typeFace;
+      letter-spacing: 0.3em;
+      height: 30px;
+      width: max-content;
+      padding: 0 10px;
+      color: $accentColor;
+      justify-self: end;
+      margin-left: 20px;
+    }
+    &--quantity {
+      color: $accentColor;
+      height: 30px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-color: $accentColor;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 5px;
+
+      input {
+        border: 0;
+        max-width: 30px;
+        max-height: 30px;
+        background: $background-color;
+        width: inherit;
+        height: inherit;
+      }
+      button {
+        width: 20px;
+        height: 30px;
+        color: inherit;
+        border: 0;
+        background: transparent;
+      }
+    }
+    &--checkout {
+      width: 100%;
+      height: 10%;
+      position: absolute;
+      bottom: 0;
+      color: $accentColor;
+      text-align: center;
+      text {
+        top: 50vh;
+      }
+
+      button {
+        height: max-content;
+        width: max-content;
+        display: block;
+        margin: 15px auto;
+        padding: 8px 15px;
+        border-color: $accentColor;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5px;
+        background: $accentColor;
+        font: normal normal 700 20px $typeFace;
+        color: $background-color;
+
+        &:hover {
+          background: transparent;
+          color: $accentColor;
+        }
+      }
+      hr {
+        display: block;
+        height: 1px;
+        width: 85%;
+        margin: 0px auto;
+        border: 0;
+        background: $accentColor;
+      }
     }
   }
 }

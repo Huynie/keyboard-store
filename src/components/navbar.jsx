@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NavBar({ cart }) {
-  const nav = document.querySelector(".nav__menu");
+function NavBar({ cart, removeFromCart }) {
+  /*   const nav = document.querySelector(".nav__menu");
   const checkBox = document.querySelector(".toggle");
   const trans = document.querySelector(".nav__menu--transparency");
   //if clicking on outside of nav menu, close nav menu
@@ -12,7 +12,25 @@ function NavBar({ cart }) {
         checkBox.checked = false;
       }
     });
-  }
+  } */
+  //TOTAL PRICE IN CART
+  const costShow = () => {
+    const totalPrice = cart.reduce(
+      (total, product) => total + product.price,
+      0
+    );
+    if (totalPrice > 0) {
+      return (
+        <div className="nav__cart--checkout">
+          <hr />
+          <button>Checkout - ${totalPrice}</button>
+        </div>
+      );
+    } else {
+      return <div className="nav__cart--checkout">Nothing Here</div>;
+    }
+  };
+
   return (
     <header>
       <nav className="nav">
@@ -23,9 +41,38 @@ function NavBar({ cart }) {
         <div className="nav__brand">
           <Link to="/">KEYBZ</Link>
         </div>
-        <button className="cart__icon">
-          <Link to="/cart">{cart.length}</Link>
-        </button>
+        <div className="nav__cart--icon">{cart.length}</div>
+        <input type="checkbox" className="toggle__cart" />
+        {/* CART MENU */}
+        <>
+          <div className="nav__cart">
+            <h1>Cart</h1>
+            <hr />
+            {cart.map((product, idx) => {
+              return (
+                <div className="nav__cart--items" key={idx}>
+                  <img src={product.image} alt={product.name} />
+                  <h2 className="nav__cart--name">${product.name}</h2>
+                  <p className="nav__cart--price">${product.price}</p>
+                  <div className="nav__cart--buttons">
+                    <div className="nav__cart--quantity">
+                      <button>+</button>
+                      <input type="text" />
+                      <button>-</button>
+                    </div>
+                    <button
+                      className="nav__cart--remove"
+                      onClick={() => removeFromCart(product)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+            {costShow()}
+          </div>
+        </>
         <ul className="nav__menu">
           <li className="nav__menu--items">
             <Link to="/">HOME</Link>
