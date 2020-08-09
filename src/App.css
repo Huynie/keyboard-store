@@ -240,7 +240,7 @@ body {
       color: #eba439;
       justify-self: end;
       margin-left: 20px; }
-    .nav__cart--quantity {
+    .nav__cart__quantity {
       color: #eba439;
       height: 30px;
       width: 80px;
@@ -251,14 +251,16 @@ body {
       border-style: solid;
       border-width: 1px;
       border-radius: 5px; }
-      .nav__cart--quantity input {
+      .nav__cart__quantity--count {
         border: 0;
         max-width: 30px;
         max-height: 30px;
         background: #324c5c;
         width: inherit;
-        height: inherit; }
-      .nav__cart--quantity button {
+        height: inherit;
+        text-align: center;
+        color: #eba439; }
+      .nav__cart__quantity--increment {
         width: 20px;
         height: 30px;
         color: inherit;

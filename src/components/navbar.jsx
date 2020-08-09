@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NavBar({ cart, removeFromCart }) {
+function NavBar({
+  cart,
+  setCart,
+  removeFromCart,
+  quantityIncrease,
+  quantityDecrease,
+  /* quantityIncrement, */
+}) {
   /*   const nav = document.querySelector(".nav__menu");
   const checkBox = document.querySelector(".toggle");
   const trans = document.querySelector(".nav__menu--transparency");
@@ -13,22 +20,33 @@ function NavBar({ cart, removeFromCart }) {
       }
     });
   } */
+  //TOTAL ITEMS IN CART
+  const totalItemsInCart = cart.reduce(
+    (total, { quantity }) => total + quantity,
+    0
+  );
   //TOTAL PRICE IN CART
   const costShow = () => {
     const totalPrice = cart.reduce(
-      (total, product) => total + product.price,
+      (total, { price, quantity }) => total + price * quantity,
       0
     );
     if (totalPrice > 0) {
       return (
         <div className="nav__cart--checkout">
           <hr />
-          <button>Checkout - ${totalPrice}</button>
+          <button>Checkout - ${totalPrice.toFixed(2)}</button>
         </div>
       );
     } else {
       return <div className="nav__cart--checkout">Nothing Here</div>;
     }
+  };
+  //SET QUANTITY
+  const setQuantity = (product, amount) => {
+    const newCart = [...cart];
+    newCart.find((item) => item.name === product.name).quantity = amount;
+    setCart(newCart);
   };
 
   return (
@@ -41,7 +59,7 @@ function NavBar({ cart, removeFromCart }) {
         <div className="nav__brand">
           <Link to="/">KEYBZ</Link>
         </div>
-        <div className="nav__cart--icon">{cart.length}</div>
+        <div className="nav__cart--icon">{totalItemsInCart}</div>
         <input type="checkbox" className="toggle__cart" />
         {/* CART MENU */}
         <>
@@ -55,10 +73,29 @@ function NavBar({ cart, removeFromCart }) {
                   <h2 className="nav__cart--name">${product.name}</h2>
                   <p className="nav__cart--price">${product.price}</p>
                   <div className="nav__cart--buttons">
-                    <div className="nav__cart--quantity">
-                      <button>+</button>
-                      <input type="text" />
-                      <button>-</button>
+                    <div className="nav__cart__quantity">
+                      <input
+                        className="nav__cart__quantity--increment"
+                        type="button"
+                        value="+"
+                        id="increase"
+                        onClick={() => quantityIncrease(product)}
+                      />
+                      <input
+                        className="nav__cart__quantity--count"
+                        type="number"
+                        value={product.quantity}
+                        onChange={(e) =>
+                          setQuantity(product, parseInt(e.target.value))
+                        }
+                      />
+                      <input
+                        className="nav__cart__quantity--increment"
+                        type="button"
+                        value="-"
+                        id="decrease"
+                        onClick={() => quantityDecrease(product)}
+                      />
                     </div>
                     <button
                       className="nav__cart--remove"

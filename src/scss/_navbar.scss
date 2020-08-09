@@ -267,7 +267,7 @@
       justify-self: end;
       margin-left: 20px;
     }
-    &--quantity {
+    &__quantity {
       color: $accentColor;
       height: 30px;
       width: 80px;
@@ -279,15 +279,17 @@
       border-width: 1px;
       border-radius: 5px;
 
-      input {
+      &--count {
         border: 0;
         max-width: 30px;
         max-height: 30px;
         background: $background-color;
         width: inherit;
         height: inherit;
+        text-align: center;
+        color: $accentColor;
       }
-      button {
+      &--increment {
         width: 20px;
         height: 30px;
         color: inherit;
