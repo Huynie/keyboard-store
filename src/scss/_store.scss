@@ -5,19 +5,25 @@
   font-family: $typeFace;
   margin-top: 150px;
 
-  &__list,
+  h1 {
+    width: max-content;
+    margin: auto;
+    color: $accentColor;
+  }
   &__name,
   &__price,
-  &__btn,
-  img {
+  &__btn {
     width: max-content;
     display: block;
-    margin: 10px auto;
+    margin: 5px auto;
+  }
+  &__list {
+    margin: 25px 25px 50px 25px;
   }
   img {
     margin-bottom: 20px;
-    height: 300px;
-    width: 100vw;
+    height: 200px;
+    width: 100%;
     object-fit: cover;
   }
   &__name {

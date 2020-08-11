@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { productContext } from "./product_list";
 
-export default function Store({ products, addToCart }) {
+export default function Store(/* { cart, setCart } */) {
+  const { products, cart, setCart } = useContext(productContext);
+
+  const addToCart = (product) => {
+    let newCart = [...cart];
+    let itemInCart = newCart.find((item) => product.name === item.name);
+    if (itemInCart) {
+      itemInCart.quantity++;
+    } else {
+      itemInCart = {
+        ...product,
+        quantity: 1,
+      };
+      newCart.push(itemInCart);
+    }
+    setCart(newCart);
+    /* setCart([...cart, { ...product }]); */
+  };
+
   return (
     <>
       <div className="product">
