@@ -3,43 +3,19 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 import Cart from "./cart";
 
-function NavBar() {
+export default function NavBar() {
   const { cart } = useContext(productContext);
 
-  /*   const nav = document.querySelector(".nav__menu");
-  const checkBox = document.querySelector(".toggle");
-  const trans = document.querySelector(".nav__menu--transparency");
-  //if clicking on outside of nav menu, close nav menu
-  if (nav) {
-    trans.addEventListener("click", (e) => {
-      if (e.target === trans) {
-        checkBox.checked = false;
-      }
-    });
-  } */
-  /*   const quantityIncrement = (product, amount) => {
-    quantity = isNaN(quantity) ? 0 : quantity;
-    const newCart = [...cart];
-    amount = newCart.find((item) => product.name === item.name);
-    if (
-      document.getElementById("increase").clicked === true &&
-      document.getElementById("decrease").value === "+"
-    ) {
-      console.log("increased", document.getElementById("increase").clicked);
-      amount.quantity++;
-      console.log("incremented");
-    } else {
-      if (document.getElementById("decrease").value === "-") {
-        console.log("decreased", document.getElementById("decrease").clicked);
-        amount.quantity--;
-        console.log("decremented");
-      }
+  //CLICKING TRANSPARENCY CLOSES WHICH EVER MENU IS UP
+  const closeNav = () => {
+    const navMenu = document.querySelector(".toggle");
+    const cartMenu = document.querySelector(".toggle__cart");
+    const trans = document.querySelector(".menu--transparency");
+    if (trans.style.opacity === "") {
+      navMenu.checked = false;
+      cartMenu.checked = false;
     }
-    setCart(newCart);
-
-    console.log("quantity is", amount.quantity);
-  }; */
-
+  };
   //TOTAL ITEMS IN CART
   const totalItemsInCart = cart.reduce(
     (total, { quantity }) => total + quantity,
@@ -55,9 +31,8 @@ function NavBar() {
         <div className="brand">
           <Link to="/">KEYBZ</Link>
         </div>
-        <div className="cart--icon">{totalItemsInCart}</div>
+        <div className="cart__icon">{totalItemsInCart}</div>
         <input type="checkbox" className="toggle__cart" />
-        {/* CART MENU */}
         <div className="cart__menu">
           <Cart />
         </div>
@@ -78,10 +53,7 @@ function NavBar() {
             <Link to="/cart">CART</Link>
           </li>
         </ul>
-        <div
-          /* onClick={closeNav()} */
-          className="menu--transparency"
-        ></div>
+        <div onClick={() => closeNav()} className="menu--transparency"></div>
         <div className="announcement">
           <p>
             Due to COVID-19 shipping will be delayed click here to learn more
@@ -91,5 +63,3 @@ function NavBar() {
     </header>
   );
 }
-
-export default NavBar;

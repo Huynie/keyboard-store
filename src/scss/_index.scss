@@ -18,7 +18,7 @@
     background: transparent;
     font: normal normal 700 20px Helvetica;
     letter-spacing: 0.3em;
-    width: 100px;
+    width: max-content;
     height: 50px;
     color: $accentColor;
   }
@@ -33,7 +33,7 @@
     flex-direction: column;
     img {
       margin-bottom: 20px;
-      height: 300px;
+      height: 100%;
       width: 100%;
       object-fit: cover;
     }
