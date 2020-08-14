@@ -8,8 +8,11 @@ $priceColor: rgb(91, 223, 172);
 * {
   margin: 0;
   padding: 0;
+  overflow: visible;
 }
 body {
+  overflow: visible;
+
   background: $background-color;
 }
 //SCROLL BAR

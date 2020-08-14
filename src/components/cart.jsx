@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { productContext } from "./product_list";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const { cart, setCart } = useContext(productContext);
@@ -32,12 +33,20 @@ function Cart() {
       (total, { price, quantity }) => total + price * quantity,
       0
     );
-
     if (totalPrice > 0) {
       return (
         <div className="cart__checkout">
           <hr />
-          <button>Checkout - ${totalPrice.toFixed(2)}</button>
+          <button>
+            <Link
+              to={{
+                pathname: "/checkout",
+                total: totalPrice,
+              }}
+            >
+              Checkout - ${totalPrice.toFixed(2)}
+            </Link>
+          </button>
         </div>
       );
     } else {

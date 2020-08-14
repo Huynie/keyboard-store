@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -10,6 +10,8 @@ import Store from "./components/store";
 import Cart from "./components/cart";
 import about from "./components/about";
 import contact from "./components/contact";
+import Items from "./components/items";
+import Checkout from "./components/checkout";
 
 //CONTEXT
 import { ProductList } from "./components/product_list";
@@ -23,7 +25,11 @@ export default function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={about} />
-
+            <Route path="/items" render={(props) => <Items {...props} />} />
+            <Route
+              path="/checkout"
+              render={(props) => <Checkout {...props} />}
+            />
             <Route
               path="/store"
               /* component={Store} */ render={(props) => (

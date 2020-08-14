@@ -10,6 +10,10 @@
   flex-direction: column;
   color: $fontColor;
 
+  a {
+    text-decoration: none;
+  }
+
   button {
     border-color: $accentColor;
     border-style: solid;

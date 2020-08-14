@@ -10,11 +10,8 @@ export default function NavBar() {
   const closeNav = () => {
     const navMenu = document.querySelector(".toggle");
     const cartMenu = document.querySelector(".toggle__cart");
-    const trans = document.querySelector(".menu--transparency");
-    if (trans.style.opacity === "") {
-      navMenu.checked = false;
-      cartMenu.checked = false;
-    }
+    navMenu.checked = false;
+    cartMenu.checked = false;
   };
   //TOTAL ITEMS IN CART
   const totalItemsInCart = cart.reduce(
@@ -54,12 +51,10 @@ export default function NavBar() {
           </li>
         </ul>
         <div onClick={() => closeNav()} className="menu--transparency"></div>
-        <div className="announcement">
-          <p>
-            Due to COVID-19 shipping will be delayed click here to learn more
-          </p>
-        </div>
       </nav>
+      <div className="announcement">
+        <p>Due to COVID-19 shipping will be delayed click here to learn more</p>
+      </div>
     </header>
   );
 }

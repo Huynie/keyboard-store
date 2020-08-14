@@ -1,8 +1,10 @@
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: visible; }
 
 body {
+  overflow: visible;
   background: #324c5c; }
 
 ::-webkit-scrollbar {
@@ -14,14 +16,21 @@ body {
     ::-webkit-scrollbar-thumb:hover {
       background: gray; }
 
+header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  display: block;
+  /* height: 50vh; */ }
+
 nav {
+  position: static;
   top: 0;
   background: #324c5c;
-  position: fixed;
   display: flex;
   justify-content: space-around;
-  width: 100vw;
-  height: 70px;
+  width: 100%;
+  /* height: 70px; */
   margin: auto; }
   nav .brand {
     margin: 15px auto;
@@ -172,15 +181,15 @@ nav {
     margin: 0; }
 
 .announcement {
-  width: 100vw;
-  top: 70px;
-  position: fixed;
+  width: 100%;
+  top: 0;
+  position: static;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #324c5c;
   font: normal normal 700 18px helvetica;
-  height: 50px;
+  /* height: 50px; */
   background: #eba439; }
   .announcement p {
     text-align: center;
@@ -196,6 +205,8 @@ nav {
   align-items: center;
   flex-direction: column;
   color: #b5cfcc; }
+  .homePage a {
+    text-decoration: none; }
   .homePage button {
     border-color: #eba439;
     border-style: solid;
@@ -239,6 +250,8 @@ nav {
   width: 100%;
   font-family: helvetica;
   margin-top: 150px; }
+  .product a {
+    text-decoration: none; }
   .product h1 {
     width: max-content;
     margin: auto;
@@ -296,12 +309,14 @@ nav {
     border: 0;
     background: #eba439; }
   .cart__icon {
+    background: url(./images/Cart.png) no-repeat;
+    background-size: contain;
     z-index: 119;
     border-color: #eba439;
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
-    background: #324c5c;
+    border: none;
     position: absolute;
     right: 0;
     height: 50px;
@@ -311,7 +326,8 @@ nav {
     color: #eba439;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: start;
+    padding-top: 5px; }
     .cart__icon a {
       text-decoration: none;
       color: #eba439; }
