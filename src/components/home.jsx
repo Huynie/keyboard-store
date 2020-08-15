@@ -3,7 +3,7 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  const { products, addToCart } = useContext(productContext);
+  const { products } = useContext(productContext);
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function Home() {
           if (featured.featured === true) {
             console.log(featured[idx]);
             return (
-              <div className="popular" key={idx}>
+              <div className="featured" key={idx}>
                 <Link
                   to={{
                     pathname: "/items",
@@ -22,15 +22,8 @@ export default function Home() {
                 >
                   {" "}
                   <img src={featured.image} alt={featured.name} />
-                  <h2 className="product__name">{featured.name}</h2>
-                  <h3 className="product__price">${featured.price}</h3>
+                  <h2 className="featured__name">{featured.name}</h2>
                 </Link>
-                <button
-                  className="product__btn"
-                  onClick={() => addToCart(featured)}
-                >
-                  add to cart
-                </button>
               </div>
             );
           }

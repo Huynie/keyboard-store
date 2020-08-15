@@ -33,15 +33,19 @@ function Cart() {
       (total, { price, quantity }) => total + price * quantity,
       0
     );
+    const checkOut = () => {
+      document.querySelector(".toggle__cart").checked = false;
+    };
     if (totalPrice > 0) {
       return (
         <div className="cart__checkout">
           <hr />
-          <button>
+          <button onClick={() => checkOut()}>
             <Link
               to={{
                 pathname: "/checkout",
                 total: totalPrice,
+                cart: cart,
               }}
             >
               Checkout - ${totalPrice.toFixed(2)}
@@ -101,7 +105,6 @@ function Cart() {
             );
           })}
         </div>
-
         {costShow()}
       </div>
     </>

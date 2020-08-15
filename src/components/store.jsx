@@ -14,7 +14,7 @@ export default function Store() {
             <div className="product__list" key={idx}>
               <Link
                 to={{
-                  pathname: "/items",
+                  pathname: `/items/${product.name}`,
                   item: product,
                 }}
               >

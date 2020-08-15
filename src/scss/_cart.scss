@@ -9,16 +9,16 @@
   h1 {
     display: block;
     width: max-content;
-    top: 15px;
+    /*    top: 15px; */
     font: normal normal 700 25px $typeFace;
     color: $accentColor;
-    margin: 20px auto;
+    margin: 30px auto 0 25px;
   }
   hr {
     display: block;
     height: 1px;
     width: 85%;
-    margin: 30px auto 0 auto;
+    margin: 20px auto 0 auto;
     border: 0;
     background: $accentColor;
   }
@@ -31,19 +31,19 @@
     border-width: 1px;
     border-radius: 5px;
     border: none;
-    position: absolute;
+    position: relative;
     right: 0;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     font-size: 20px;
-    margin: 3px;
+    margin: 20px;
     color: $accentColor;
     display: flex;
     justify-content: center;
     align-items: start;
-    padding-top: 5px;
 
-    a {
+    text {
+      padding: 5em;
       text-decoration: none;
       color: $accentColor;
     }
@@ -59,7 +59,7 @@
     overflow-y: scroll;
   }
   &__items {
-    /* width: max-content; */
+    overflow-x: hidden;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 1fr;
@@ -151,10 +151,13 @@
     height: 10%;
     /* position: absolute; */
     bottom: 0;
-    color: $accentColor;
     text-align: center;
     margin-top: auto;
-    text {
+    color: $accentColor;
+
+    a {
+      color: $background-color;
+      text-decoration: none;
       top: 50vh;
     }
 

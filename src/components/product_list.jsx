@@ -5,44 +5,60 @@ export const productContext = createContext();
 export const ProductList = (props) => {
   const [products] = useState([
     {
-      name: "Item 1",
+      name: "Ceramik White 60",
       price: (80.0).toFixed(2),
       image: require("../images/k1.png"),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
     },
     {
-      name: "Item 2",
+      name: "Salmon Peach 60",
       price: (70.0).toFixed(2),
       image: require("../images/k2.png"),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
     },
     {
-      name: "Item 3",
+      name: "KIWI 60",
       price: (70.0).toFixed(2),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k3.png"),
     },
     {
-      name: "Item 4",
+      name: "Sandstone 60",
       price: (70.0).toFixed(2),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k4.png"),
     },
     {
-      name: "Item 5",
+      name: "Pomegranate 60",
       price: (70.0).toFixed(2),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k10.png"),
     },
     {
-      name: "Item 6",
+      name: "Pastel 60",
       price: (70.0).toFixed(2),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k11.png"),
     },
     {
-      name: "Item 7",
+      name: "Hubba Bubba Powder",
       price: (70.0).toFixed(2),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k12.png"),
       featured: true,
     },
     {
-      name: "Item 8",
+      name: "Teal Grape",
       price: (70.0).toFixed(2),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k13.png"),
       featured: true,
     },

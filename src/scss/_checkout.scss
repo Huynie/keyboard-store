@@ -1,0 +1,76 @@
+.checkout {
+  color: $accentColor;
+  margin: auto;
+  font: normal normal 300 18px $typeFace;
+
+  &__title {
+    width: max-content;
+    margin: 20px auto;
+  }
+  &__itemsList {
+    margin: 10px 20px;
+
+    li {
+      margin: auto;
+      display: flex;
+      width: 100%;
+    }
+    &--name {
+      display: flex;
+      border: solid 1px $accentColor;
+      flex: 8;
+      padding: 5px 5px;
+      font: normal normal 500 20px $typeFace;
+
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        margin: 5px;
+      }
+    }
+    &--quantity {
+      border: solid 1px $accentColor;
+      flex: 1;
+      text-align: center;
+      padding: 2px 5px;
+    }
+    &--price {
+      border: solid 1px $accentColor;
+      flex: 2;
+      text-align: center;
+      padding: 2px 5px;
+    }
+  }
+  &__cost {
+    border: solid 1px $accentColor;
+    width: 200px;
+    margin: 0 20px 0 auto;
+    li {
+      display: flex;
+
+      div {
+        border: solid 1px $accentColor;
+        flex: 2;
+        padding: 2px 5px;
+      }
+      p {
+        border: solid 1px $accentColor;
+        flex: 1;
+        padding: 2px 5px;
+      }
+    }
+  }
+  &__order {
+    height: max-content;
+    width: 95%;
+    display: block;
+    margin: 15px auto;
+    padding: 8px 15px;
+    border: $accentColor solid 1px;
+    border-radius: 5px;
+    background: $accentColor;
+    font: normal normal 700 20px $typeFace;
+    color: $background-color;
+  }
+}
