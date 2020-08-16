@@ -38,7 +38,7 @@ export default function NavBar() {
             <Link to="/">HOME</Link>
           </li>
           <li className="menu--items">
-            <Link to="/Store">STORE</Link>
+            <Link to="/Store">SHOP</Link>
           </li>
           <li className="menu--items">
             <Link to="/about">ABOUT</Link>

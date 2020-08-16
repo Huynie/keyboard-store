@@ -1,45 +1,47 @@
 .product {
   top: 150px;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   font-family: $typeFace;
   margin: 20px auto;
-
+  display: block;
+  grid-template-columns: 50% 50%;
   a {
     text-decoration: none;
   }
-
+  div {
+    margin-top: 20px;
+  }
   h1 {
     width: max-content;
     margin: auto;
     color: $accentColor;
   }
-  &__name,
-  &__price,
-  &__btn {
-    width: max-content;
-    display: block;
-    margin: 5px auto;
-  }
-  &__list {
-    margin: 25px;
+  &__item {
+    width: 80%;
+    margin: auto;
   }
   img {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     height: 200px;
     width: 100%;
     object-fit: cover;
   }
   &__name {
     color: $fontColor;
-    font: normal normal 700 25px Helvetica;
-    letter-spacing: 0.2em;
+    font: normal normal 700 20px Helvetica;
+    letter-spacing: 0.1em;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
   }
   &__price {
     font: normal normal 600 20px Helvetica;
     letter-spacing: 0.1em;
     padding: 10px;
     color: $priceColor;
+    width: max-content;
+    margin: auto;
   }
   &__btn {
     border-color: $accentColor;

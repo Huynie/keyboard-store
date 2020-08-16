@@ -3,30 +3,18 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const { cart, setCart } = useContext(productContext);
+  const {
+    cart,
+    setCart,
+    setQuantity,
+    quantityIncrease,
+    quantityDecrease,
+  } = useContext(productContext);
 
   const removeFromCart = (productToRemove) => {
     setCart(cart.filter((product) => product !== productToRemove));
   };
-  const quantityIncrease = (product, amount) => {
-    const newCart = [...cart];
-    amount = newCart.find((item) => product.name === item.name);
-    amount.quantity++;
-    setCart(newCart);
-    console.log("quantity increased", amount.quantity);
-  };
-  const quantityDecrease = (product, amount) => {
-    const newCart = [...cart];
-    amount = newCart.find((item) => product.name === item.name);
-    amount.quantity--;
-    setCart(newCart);
-    console.log("quantity increased", amount.quantity);
-  };
-  const setQuantity = (product, amount) => {
-    const newCart = [...cart];
-    newCart.find((item) => item.name === product.name).quantity = amount;
-    setCart(newCart);
-  };
+
   //TOTAL PRICE BUTTON
   const costShow = () => {
     const totalPrice = cart.reduce(

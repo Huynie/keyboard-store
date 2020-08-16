@@ -7,7 +7,10 @@ export const ProductList = (props) => {
     {
       name: "Ceramik White 60",
       price: (80.0).toFixed(2),
-      image: require("../images/k1.png"),
+      image: require("../images/k1.png") /* {
+        first: require("../images/k1.png"),
+        second: require("../images/k5.png"),
+      }, */,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
     },
@@ -40,7 +43,7 @@ export const ProductList = (props) => {
       image: require("../images/k10.png"),
     },
     {
-      name: "Pastel 60",
+      name: "Pastel 60 sdfsdfafsdfasfas",
       price: (70.0).toFixed(2),
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
@@ -79,7 +82,23 @@ export const ProductList = (props) => {
     setCart(newCart);
     /* setCart([...cart, { ...product }]); */
   };
-
+  const quantityIncrease = (product, amount) => {
+    const newCart = [...cart];
+    amount = newCart.find((item) => product.name === item.name);
+    amount.quantity++;
+    setCart(newCart);
+  };
+  const quantityDecrease = (product, amount) => {
+    const newCart = [...cart];
+    amount = newCart.find((item) => product.name === item.name);
+    amount.quantity--;
+    setCart(newCart);
+  };
+  const setQuantity = (product, amount) => {
+    const newCart = [...cart];
+    newCart.find((item) => item.name === product.name).quantity = amount;
+    setCart(newCart);
+  };
   return (
     <productContext.Provider
       value={{
@@ -87,6 +106,9 @@ export const ProductList = (props) => {
         cart,
         setCart,
         addToCart,
+        quantityIncrease,
+        quantityDecrease,
+        setQuantity,
       }}
     >
       {props.children}

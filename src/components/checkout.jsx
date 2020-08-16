@@ -11,10 +11,12 @@ export default function Checkout(props) {
     if (total > 0) {
       return (
         <div className="checkout">
-          <h1 className="checkout__title">CHECKOUT</h1>
-          <ul className="checkout__itemsList">
-            {cart.map((item, idx) => {
-              return (
+          <h1 className="checkout__title">Order Summary</h1>
+          <hr />
+
+          {cart.map((item, idx) => {
+            return (
+              <ul className="checkout__itemsList">
                 <li key={idx}>
                   <div className="checkout__itemsList--name">
                     <img src={item.image} alt="" />
@@ -27,25 +29,28 @@ export default function Checkout(props) {
                     ${item.price}
                   </div>
                 </li>
-              );
-            })}
-          </ul>
+                <hr />
+              </ul>
+            );
+          })}
+
           <ul className="checkout__cost">
-            <li className="checkout__total">
+            <li className="checkout__cost--total">
               <div>Total</div>
-              <p>${total}</p>
+              <p>${total.toFixed(2)}</p>
             </li>
-            <li className="checkout__shipping">
+            <li className="checkout__cost--shipping">
               <div>Tax</div>
-              <p>${tax}</p>
+              <p>${tax.toFixed(2)}</p>
             </li>
-            <li className="checkout__tax">
+            <li className="checkout__cost--tax">
               <div>Shipping</div>
-              <p>${shipping}</p>
+              <p>${shipping.toFixed(2)}</p>
             </li>
-            <li className="checkout__grandTotal">
+            <hr />
+            <li className="checkout__cost--grandTotal">
               <div>Grand Total</div>
-              <p>${grandTotal}</p>
+              <p>${grandTotal.toFixed(2)}</p>
             </li>
           </ul>
           <button className="checkout__order">Place Order</button>

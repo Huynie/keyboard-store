@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
+import About from "./about";
+import Contact from "./contact";
 
 export default function Home() {
   const { products } = useContext(productContext);
@@ -28,6 +30,10 @@ export default function Home() {
             );
           }
         })}
+        <hr />
+        <About />
+        <hr />
+        <Contact />
       </div>
     </>
   );
