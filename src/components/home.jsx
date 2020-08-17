@@ -12,22 +12,20 @@ export default function Home() {
       <div className="homePage">
         <h1>Featured</h1>
         {products.map((featured, idx) => {
-          if (featured.featured === true) {
-            return (
-              <div className="featured" key={idx}>
-                <Link
-                  to={{
-                    pathname: "/items",
-                    item: featured,
-                  }}
-                >
-                  {" "}
-                  <img src={featured.image} alt={featured.name} />
-                  <h2 className="featured__name">{featured.name}</h2>
-                </Link>
-              </div>
-            );
-          }
+          return (
+            <div className="featured" key={idx}>
+              <Link
+                to={{
+                  pathname: "/items",
+                  item: featured,
+                }}
+              >
+                {" "}
+                <img src={featured.image} alt={featured.name} />
+                <h2 className="featured__name">{featured.name}</h2>
+              </Link>
+            </div>
+          );
         })}
         <hr />
         <About />
