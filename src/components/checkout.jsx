@@ -1,5 +1,4 @@
 import React from "react";
-import Cart from "./cart";
 
 export default function Checkout(props) {
   const total = props.location.total;

@@ -6,9 +6,9 @@ import Store from "./store";
 export default function Items(props) {
   const {
     addToCart,
-    setQuantity,
+    /* setQuantity,
     quantityIncrease,
-    quantityDecrease,
+    quantityDecrease, */
   } = useContext(productContext);
   const item = props.location.item;
   if (item) {

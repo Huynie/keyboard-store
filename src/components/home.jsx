@@ -13,7 +13,6 @@ export default function Home() {
         <h1>Featured</h1>
         {products.map((featured, idx) => {
           if (featured.featured === true) {
-            console.log(featured[idx]);
             return (
               <div className="featured" key={idx}>
                 <Link
