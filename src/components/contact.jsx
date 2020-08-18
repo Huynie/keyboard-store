@@ -5,7 +5,7 @@ const contact = () => {
     <div className="contact" id="contact">
       <div>
         <h1>contact</h1>
-        <a>info@keybz.com</a>
+        <a href="">info@keybz.com</a>
         {/* <form action="/contact">
           <label htmlFor="email">
             email
