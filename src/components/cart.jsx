@@ -1,50 +1,16 @@
 import React, { useContext } from "react";
 import { productContext } from "./product_list";
-import { Link } from "react-router-dom";
 
 function Cart() {
   const {
     cart,
-    setCart,
     setQuantity,
     quantityIncrease,
     quantityDecrease,
+    removeFromCart,
+    checkOutBtn,
   } = useContext(productContext);
 
-  const removeFromCart = (productToRemove) => {
-    setCart(cart.filter((product) => product !== productToRemove));
-  };
-
-  //TOTAL PRICE BUTTON
-  const costShow = () => {
-    const totalPrice = cart.reduce(
-      (total, { price, quantity }) => total + price * quantity,
-      0
-    );
-    const checkOut = () => {
-      document.querySelector(".toggle__cart").checked = false;
-    };
-    if (totalPrice > 0) {
-      return (
-        <div className="cart__checkout">
-          <hr />
-          <button onClick={() => checkOut()}>
-            <Link
-              to={{
-                pathname: "/checkout",
-                total: totalPrice,
-                cart: cart,
-              }}
-            >
-              Checkout - ${totalPrice.toFixed(2)}
-            </Link>
-          </button>
-        </div>
-      );
-    } else {
-      return <div className="cart__checkout">Nothing Here</div>;
-    }
-  };
   return (
     <>
       <div className="cart">
@@ -62,10 +28,11 @@ function Cart() {
                     <input
                       className="cart__quantity--increment"
                       type="button"
-                      value="+"
-                      id="increase"
-                      onClick={() => quantityIncrease(product)}
+                      value="-"
+                      id="decrease"
+                      onClick={() => quantityDecrease(product)}
                     />
+
                     <input
                       className="cart__quantity--count"
                       type="number"
@@ -77,9 +44,9 @@ function Cart() {
                     <input
                       className="cart__quantity--increment"
                       type="button"
-                      value="-"
-                      id="decrease"
-                      onClick={() => quantityDecrease(product)}
+                      value="+"
+                      id="increase"
+                      onClick={() => quantityIncrease(product)}
                     />
                   </div>
                   <button
@@ -93,7 +60,7 @@ function Cart() {
             );
           })}
         </div>
-        {costShow()}
+        {checkOutBtn()}
       </div>
     </>
   );

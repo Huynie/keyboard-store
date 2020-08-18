@@ -9,29 +9,30 @@ export default function Home() {
 
   return (
     <>
-      <div className="homePage">
+      <div className="homePage" id="featured">
         <h1>Featured</h1>
-        {products.map((featured, idx) => {
-          return (
-            <div className="featured" key={idx}>
-              <Link
-                to={{
-                  pathname: "/items",
-                  item: featured,
-                }}
-              >
-                {" "}
-                <img src={featured.image} alt={featured.name} />
-                <h2 className="featured__name">{featured.name}</h2>
-              </Link>
-            </div>
-          );
-        })}
+        {products
+          .filter((featured) => featured.featured)
+          .map((featured, idx) => {
+            return (
+              <div className="featured" key={idx}>
+                <Link
+                  to={{
+                    pathname: "/items",
+                    item: featured,
+                  }}
+                >
+                  {" "}
+                  <img src={featured.image} alt={featured.name} />
+                  <h2 className="featured__name">{featured.name}</h2>
+                </Link>
+              </div>
+            );
+          })}
         <hr />
-        <About />
-        <hr />
-        <Contact />
       </div>
+      <About />
+      <Contact />
     </>
   );
 }

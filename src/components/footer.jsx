@@ -3,6 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
+      <hr />
+      <p>Huy Chau 2020</p>
       <ul className="social">
         <li>
           <img src={require("../images/FB White.png")} alt="" />
@@ -14,7 +16,6 @@ const Footer = () => {
           <img src={require("../images/TW White.png")} alt="" />
         </li>
       </ul>
-      made by Huy Chau 2020 copyright
     </footer>
   );
 };

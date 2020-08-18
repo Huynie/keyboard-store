@@ -2,13 +2,16 @@ import React from "react";
 
 const contact = () => {
   return (
-    <div>
-      <h1 className="about">Reach Out</h1>
+    <div className="contact" id="contact">
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-        eveniet facilis quod cum, labore a temporibus? Numquam ratione id fuga
-        ipsam! Minima rerum illo dicta asperiores maxime pariatur impedit et!
-        <form action=""></form>
+        <h1>contact</h1>
+        <a>info@keybz.com</a>
+        {/* <form action="/contact">
+          <label htmlFor="email">
+            email
+            <input id="email" type="email" />
+          </label>
+        </form> */}
       </div>
     </div>
   );

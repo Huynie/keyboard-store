@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react";
+import { Link } from "react-router-dom";
 
 export const productContext = createContext();
 
@@ -91,13 +92,43 @@ export const ProductList = (props) => {
   const quantityDecrease = (product, amount) => {
     const newCart = [...cart];
     amount = newCart.find((item) => product.name === item.name);
-    amount.quantity--;
+    if (amount.quantity < 2) {
+      const decrease = document.getElementById("decrease");
+      decrease.attributes.disabled = true;
+    } else {
+      amount.quantity--;
+    }
     setCart(newCart);
   };
   const setQuantity = (product, amount) => {
     const newCart = [...cart];
     newCart.find((item) => item.name === product.name).quantity = amount;
     setCart(newCart);
+  };
+  const removeFromCart = (productToRemove) => {
+    setCart(cart.filter((product) => product !== productToRemove));
+  };
+  //TOTAL PRICE BUTTON
+  const totalPrice = cart.reduce(
+    (total, { price, quantity }) => total + price * quantity,
+    0
+  );
+  const checkOutBtn = () => {
+    const closeSideCart = () => {
+      document.querySelector(".toggle__cart").checked = false;
+    };
+    if (totalPrice > 0) {
+      return (
+        <div className="cart__checkout">
+          <hr />
+          <button onClick={() => closeSideCart()}>
+            <Link to="/checkout">Checkout - ${totalPrice.toFixed(2)}</Link>
+          </button>
+        </div>
+      );
+    } else {
+      return <div className="cart__checkout">Nothing Here</div>;
+    }
   };
   return (
     <productContext.Provider
@@ -109,6 +140,9 @@ export const ProductList = (props) => {
         quantityIncrease,
         quantityDecrease,
         setQuantity,
+        removeFromCart,
+        checkOutBtn,
+        totalPrice,
       }}
     >
       {props.children}

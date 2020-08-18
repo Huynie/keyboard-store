@@ -86,5 +86,10 @@
     background: $accentColor;
     font: normal normal 700 20px $typeFace;
     color: $background-color;
+    outline: none;
+
+    &:active {
+      background: rgb(219, 156, 61);
+    }
   }
 }

@@ -61,6 +61,11 @@
     width: 85%;
     padding: 0 10px;
     color: $background-color;
+    outline: none;
+
+    &:active {
+      background: rgb(219, 156, 61);
+    }
   }
   &__quantity {
     color: $accentColor;

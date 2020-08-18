@@ -44,22 +44,18 @@
     flex-direction: column;
     text-decoration: none;
 
-    &__name,
-    &__price,
-    &__btn {
-      width: max-content;
-      display: block;
-      margin: 15px auto;
-    }
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
     &__name {
       color: $fontColor;
       font: normal normal 700 25px Helvetica;
       letter-spacing: 0.2em;
+      white-space: normal;
+      text-align: center;
+      margin: 15px auto;
     }
     &__price {
       font: normal normal 600 20px Helvetica;

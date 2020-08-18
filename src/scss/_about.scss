@@ -1,10 +1,14 @@
 .about {
   text-align: center;
-  margin: auto;
   color: $fontColor;
-  p {
-    text-align: left;
-    margin: auto 30px;
-    color: $accentColor;
+  /* height: 100vh; */
+  padding: 40vh 0 0 0;
+  & > div {
+    width: 80%;
+    margin: auto;
+    p {
+      text-align: left;
+      color: $accentColor;
+    }
   }
 }

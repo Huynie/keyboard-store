@@ -28,28 +28,54 @@ export default function NavBar() {
         <div className="brand">
           <Link to="/">KEYBZ</Link>
         </div>
-        <div className="cart__icon">{totalItemsInCart}</div>
         <input type="checkbox" className="toggle__cart" />
+        <div className="cart__icon">{totalItemsInCart}</div>
         <div className="cart__menu">
           <Cart />
         </div>
-        <ul className="menu">
-          <li className="menu--items">
-            <Link to="/">HOME</Link>
-          </li>
-          <li className="menu--items">
-            <Link to="/Store">SHOP</Link>
-          </li>
-          <li className="menu--items">
-            <Link to="/about">ABOUT</Link>
-          </li>
-          <li className="menu--items">
-            <Link to="/contact">CONTACT</Link>
-          </li>
-          <li className="menu--items">
-            <Link to="/cart">CART</Link>
-          </li>
-        </ul>
+        <div className="menu">
+          <ul>
+            <li className="menu--items">
+              <Link to="/" onClick={() => closeNav()}>
+                HOME
+              </Link>
+            </li>
+            <li className="menu--items">
+              <Link to="/Store" onClick={() => closeNav()}>
+                SHOP
+              </Link>
+            </li>
+            <li className="menu--items">
+              <a href="./#about" onClick={() => closeNav()}>
+                ABOUT
+              </a>
+              {/* <Link to="./#about">ABOUT</Link> */}
+            </li>
+            <li className="menu--items">
+              <a href="./#contact" onClick={() => closeNav()}>
+                CONTACT
+              </a>
+
+              {/* <Link
+              to={{
+                pathname: "./#contact",
+              }}
+            >
+              CONTACT
+            </Link> */}
+            </li>
+            <li className="menu--items">
+              <Link to="/cart" onClick={() => closeNav()}>
+                CART
+              </Link>
+            </li>
+          </ul>
+          <div className="menu--social">
+            <img src={require("../images/FB White.png")} alt="" />
+            <img src={require("../images/IG White.png")} alt="" />
+            <img src={require("../images/TW White.png")} alt="" />
+          </div>
+        </div>
         <div onClick={() => closeNav()} className="menu--transparency"></div>
       </nav>
       <div className="announcement">
