@@ -6,13 +6,15 @@ export default function Checkout() {
   const shipping = totalPrice / 2;
   const tax = totalPrice / 3;
   const grandTotal = totalPrice + tax + shipping;
+  const purchased = () => {
+    document.querySelector(".checkout__title").innerHTML = "Thank you!";
+  };
   const totalRendered = () => {
     if (totalPrice > 0) {
       return (
         <div className="checkout">
           <h1 className="checkout__title">Order Summary</h1>
           <hr />
-
           {cart.map((item, idx) => {
             return (
               <ul className="checkout__itemsList" key={idx}>
@@ -52,7 +54,9 @@ export default function Checkout() {
               <p>${grandTotal.toFixed(2)}</p>
             </li>
           </ul>
-          <button className="checkout__order">Place Order</button>
+          <button className="checkout__order" onClick={() => purchased()}>
+            Place Order
+          </button>
         </div>
       );
     } else {

@@ -1,11 +1,14 @@
-@keyframes {
+@keyframes loadIn {
   from {
     opacity: 0;
-    bottom: -10px; }
+    transform: translateY(10px); }
   to {
     opacity: 1;
-    bottom: 0; } }
+    transform: translateY(0); } }
 
+/* :root {
+  height: 100%;
+} */
 * {
   margin: 0;
   padding: 0; }
@@ -63,8 +66,8 @@ nav {
       text-decoration: none; }
   nav .menu {
     background: #eba439;
-    height: 100%;
-    position: fixed;
+    height: 100vh;
+    position: absolute;
     top: 0;
     left: -40vw;
     z-index: 95;
@@ -92,13 +95,15 @@ nav {
       opacity: 0;
       visibility: hidden; }
     nav .menu--social {
-      position: fixed;
-      bottom: 5vh;
-      display: flex; }
+      position: absolute;
+      top: 90vh;
+      display: flex;
+      width: max-content;
+      margin: auto; }
       nav .menu--social img {
         width: 30px;
         height: 30px;
-        margin: 0 20px 0 0; }
+        margin: 0 7px; }
   nav .hamburger {
     z-index: 99;
     position: relative;
@@ -159,6 +164,8 @@ nav {
       transition: left 0.4s ease, opacity 0.4s ease; }
     nav .toggle:checked ~ .toggle__cart {
       z-index: 80; }
+    nav .toggle:checked ~ .cart__icon {
+      z-index: 80; }
     nav .toggle__cart {
       position: absolute;
       right: 0;
@@ -214,11 +221,9 @@ nav {
     color: #eba439;
     display: flex;
     justify-content: center;
-    align-items: start;
     line-height: 280%; }
     nav .cart__icon text {
-      text-decoration: none;
-      color: #eba439; }
+      text-decoration: none; }
 
 .announcement {
   width: 100%;
@@ -259,6 +264,7 @@ nav {
     height: 50px;
     color: #eba439; }
   .homePage .featured {
+    animation: loadIn 0.8s;
     font: normal normal 700 25px Helvetica;
     letter-spacing: 0.2em;
     /* line-height: 165%; */
@@ -297,6 +303,7 @@ nav {
       color: #eba439; }
 
 .about {
+  animation: loadIn 0.8s;
   text-align: center;
   color: #b5cfcc;
   /* height: 100vh; */
@@ -311,36 +318,61 @@ nav {
 .product {
   top: 150px;
   height: 100%;
-  width: 100vw;
+  max-width: 100vw;
   font-family: helvetica;
-  margin: 20px auto;
   display: block;
-  grid-template-columns: 50% 50%; }
+  margin: 0; }
+  .product__category {
+    margin: auto;
+    color: #eba439;
+    /* width: max-content; */
+    background: #2f4452;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .product__category select {
+      width: max-content;
+      outline: none;
+      background: #2f4452;
+      border: none;
+      color: #eba439;
+      padding: 10px; }
+    .product__category option {
+      /* background: $accentColor; */
+      outline: none; }
+      .product__category option:focus,
+      .product__category option :hover {
+        background: #eba439; }
   .product a {
     text-decoration: none; }
-  .product div {
-    margin-top: 20px; }
   .product h1 {
     width: max-content;
     margin: auto;
     color: #eba439; }
   .product__item {
-    width: 80%;
-    margin: auto; }
+    animation: loadIn 0.8s;
+    display: inline-block;
+    max-width: 50vw;
+    vertical-align: top;
+    margin-bottom: 15px; }
   .product img {
     /* margin-bottom: 20px; */
-    height: 200px;
-    width: 100%;
-    object-fit: cover; }
+    height: 80%;
+    width: 80%;
+    object-fit: contain;
+    margin: 0 0 0 20px; }
+  .product__info {
+    width: 90%;
+    margin: auto; }
   .product__name {
     color: #b5cfcc;
-    font: normal normal 700 20px Helvetica;
+    font: normal normal 700 16px Helvetica;
     letter-spacing: 0.1em;
     word-wrap: break-word;
     width: 100%;
     text-align: center; }
   .product__price {
-    font: normal normal 600 20px Helvetica;
+    font: normal normal 600 16px Helvetica;
     letter-spacing: 0.1em;
     padding: 10px;
     color: #5bdfac;
@@ -359,6 +391,7 @@ nav {
     color: #eba439; }
 
 .items {
+  animation: loadIn 0.8s;
   top: 150px;
   width: 100%;
   height: 100%;
@@ -606,6 +639,7 @@ nav {
       background: #eba439; }
 
 .checkout {
+  animation: loadIn 0.8s;
   color: #b5cfcc;
   margin: 50px auto;
   font: normal normal 300 18px helvetica;
@@ -617,9 +651,9 @@ nav {
     border: 0;
     background: #eba439; }
   .checkout__title {
-    width: max-content;
     margin: 20px auto;
-    color: #eba439; }
+    color: #eba439;
+    word-break: break-word; }
   .checkout__itemsList {
     margin: 10px 20px; }
     .checkout__itemsList li {
@@ -680,6 +714,7 @@ nav {
       background: #db9c3d; }
 
 .contact {
+  animation: loadIn 0.8s;
   text-align: center;
   margin: auto;
   color: #b5cfcc;

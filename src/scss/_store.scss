@@ -1,16 +1,39 @@
 .product {
   top: 150px;
   height: 100%;
-  width: 100vw;
+  max-width: 100vw;
   font-family: $typeFace;
-  margin: 20px auto;
   display: block;
-  grid-template-columns: 50% 50%;
+  margin: 0;
+
+  &__category {
+    margin: auto;
+    color: $accentColor;
+    /* width: max-content; */
+    background: rgb(47, 68, 82);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & select {
+      width: max-content;
+      outline: none;
+      background: rgb(47, 68, 82);
+      border: none;
+      color: $accentColor;
+      padding: 10px;
+    }
+    & option {
+      /* background: $accentColor; */
+      outline: none;
+
+      &:focus,
+      :hover {
+        background: $accentColor;
+      }
+    }
+  }
   a {
     text-decoration: none;
-  }
-  div {
-    margin-top: 20px;
   }
   h1 {
     width: max-content;
@@ -18,25 +41,33 @@
     color: $accentColor;
   }
   &__item {
-    width: 80%;
-    margin: auto;
+    animation: $loadIn;
+    display: inline-block;
+    max-width: 50vw;
+    vertical-align: top;
+    margin-bottom: 15px;
   }
   img {
     /* margin-bottom: 20px; */
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
+    height: 80%;
+    width: 80%;
+    object-fit: contain;
+    margin: 0 0 0 20px;
+  }
+  &__info {
+    width: 90%;
+    margin: auto;
   }
   &__name {
     color: $fontColor;
-    font: normal normal 700 20px Helvetica;
+    font: normal normal 700 16px Helvetica;
     letter-spacing: 0.1em;
     word-wrap: break-word;
     width: 100%;
     text-align: center;
   }
   &__price {
-    font: normal normal 600 20px Helvetica;
+    font: normal normal 600 16px Helvetica;
     letter-spacing: 0.1em;
     padding: 10px;
     color: $priceColor;

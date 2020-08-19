@@ -4,16 +4,21 @@ $typeFace: helvetica;
 $background-color: rgb(50, 76, 92);
 $accentColor: rgb(235, 164, 57);
 $priceColor: rgb(91, 223, 172);
-@keyframes {
+$loadIn: loadIn 0.8s;
+
+@keyframes loadIn {
   from {
     opacity: 0;
-    bottom: -10px;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    bottom: 0;
+    transform: translateY(0);
   }
 }
+/* :root {
+  height: 100%;
+} */
 * {
   margin: 0;
   padding: 0;

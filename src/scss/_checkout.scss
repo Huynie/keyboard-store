@@ -1,4 +1,5 @@
 .checkout {
+  animation: $loadIn;
   color: $fontColor;
   margin: 50px auto;
   font: normal normal 300 18px $typeFace;
@@ -11,9 +12,9 @@
     background: $accentColor;
   }
   &__title {
-    width: max-content;
     margin: 20px auto;
     color: $accentColor;
+    word-break: break-word;
   }
   &__itemsList {
     margin: 10px 20px;

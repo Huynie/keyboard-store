@@ -34,6 +34,7 @@
     color: $accentColor;
   }
   .featured {
+    animation: $loadIn;
     font: normal normal 700 25px Helvetica;
     letter-spacing: 0.2em;
     /* line-height: 165%; */

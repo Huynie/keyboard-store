@@ -41,8 +41,8 @@ nav {
   }
   .menu {
     background: $accentColor;
-    height: 100%;
-    position: fixed;
+    height: 100vh;
+    position: absolute;
     top: 0;
     left: -40vw;
     z-index: 95;
@@ -75,14 +75,16 @@ nav {
       visibility: hidden;
     }
     &--social {
-      position: fixed;
-      bottom: 5vh;
+      position: absolute;
+      top: 90vh;
       display: flex;
+      width: max-content;
+      margin: auto;
 
       img {
         width: 30px;
         height: 30px;
-        margin: 0 20px 0 0;
+        margin: 0 7px;
       }
     }
   }
@@ -163,6 +165,9 @@ nav {
     &:checked ~ .toggle__cart {
       z-index: 80;
     }
+    &:checked ~ .cart__icon {
+      z-index: 80;
+    }
     &__cart {
       position: absolute;
       right: 0;
@@ -228,12 +233,10 @@ nav {
     color: $accentColor;
     display: flex;
     justify-content: center;
-    align-items: start;
     line-height: 280%;
 
     text {
       text-decoration: none;
-      color: $accentColor;
     }
   }
 }

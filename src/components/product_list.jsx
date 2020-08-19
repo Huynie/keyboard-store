@@ -8,19 +8,21 @@ export const ProductList = (props) => {
     {
       name: "Ceramik White 60",
       price: (80.0).toFixed(2),
+      description:
+        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k1.png") /* {
         first: require("../images/k1.png"),
         second: require("../images/k5.png"),
       }, */,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
+      category: "full kit",
     },
     {
       name: "Salmon Peach 60",
       price: (70.0).toFixed(2),
-      image: require("../images/k2.png"),
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
+      image: require("../images/k2.png"),
+      category: "full kit",
     },
     {
       name: "KIWI 60",
@@ -28,6 +30,7 @@ export const ProductList = (props) => {
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k3.png"),
+      category: "full kit",
     },
     {
       name: "Sandstone 60",
@@ -35,6 +38,7 @@ export const ProductList = (props) => {
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k4.png"),
+      category: "full kit",
     },
     {
       name: "Pomegranate 60",
@@ -42,13 +46,15 @@ export const ProductList = (props) => {
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k10.png"),
+      category: "full kit",
     },
     {
-      name: "Pastel 60 sdfsdfafsdfasfas",
+      name: "Pastel 60",
       price: (70.0).toFixed(2),
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k11.png"),
+      category: "full kit",
     },
     {
       name: "Hubba Bubba Powder",
@@ -56,6 +62,7 @@ export const ProductList = (props) => {
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k12.png"),
+      category: "full kit",
       featured: true,
     },
     {
@@ -65,9 +72,44 @@ export const ProductList = (props) => {
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       image: require("../images/k13.png"),
       featured: true,
+      category: "full kit",
+    },
+    {
+      name: "Lapis Lazuli",
+      price: (20.0).toFixed(2),
+      description: "PBT Double shot keycaps",
+      image: require("../images/k14.png"),
+      category: "keycaps",
+    },
+    {
+      name: "Jade",
+      price: (20.0).toFixed(2),
+      description: "PBT Double shot keycaps",
+      image: require("../images/k17.png"),
+      category: "keycaps",
+    },
+    {
+      name: "Bronze Knee-Cap",
+      price: (20.0).toFixed(2),
+      description: "PBT Double shot keycaps",
+      image: require("../images/k16.png"),
+      category: "keycaps",
+    },
+    {
+      name: "Bubble Gum",
+      price: (20.0).toFixed(2),
+      description: "PBT Double shot keycaps",
+      image: require("../images/k15.png"),
+      category: "keycaps",
     },
   ]);
+  const [category, setCategory] = useState("full kit");
+
+  const getProductsInCategory = () => {
+    return products.filter((product) => product.category === category);
+  };
   const [cart, setCart] = useState([]);
+
   const addToCart = (product) => {
     let newCart = [...cart];
     let itemInCart = newCart.find((item) => product.name === item.name);
@@ -81,7 +123,17 @@ export const ProductList = (props) => {
       newCart.push(itemInCart);
     }
     setCart(newCart);
-    /* setCart([...cart, { ...product }]); */
+    // adds entire individual product everytime button clicked
+    /* setCart([...cart, { ...product }]);*/
+
+    //changes cart icon when added to cart
+    const icon = document.querySelector("nav .cart__icon");
+    icon.style.background = `url(' ${require("../images/Cart_clicked.png")}')`;
+    icon.style.backgroundSize = "contain";
+    icon.style.color = "rgb(50, 76, 92)";
+    setTimeout(() => {
+      icon.removeAttribute("style");
+    }, 200);
   };
   const quantityIncrease = (product, amount) => {
     const newCart = [...cart];
@@ -143,6 +195,8 @@ export const ProductList = (props) => {
         removeFromCart,
         checkOutBtn,
         totalPrice,
+        getProductsInCategory,
+        setCategory,
       }}
     >
       {props.children}
