@@ -3,12 +3,9 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 
 export default function Store() {
-  const {
-    getProductsInCategory,
-    setCategory,
-    itemPicked,
-    setItemPicked,
-  } = useContext(productContext);
+  const { getProductsInCategory, setCategory, setItemPicked } = useContext(
+    productContext
+  );
   return (
     <>
       <div className="product">

@@ -43,7 +43,7 @@ export default function Items() {
 
   useEffect(() => {
     carousel();
-  }, []);
+  });
 
   const dotClicked = (dotIdx) => {
     const slideView = document.querySelector(".items__slider");
@@ -83,9 +83,7 @@ export default function Items() {
                   id={idx}
                   value={image.index}
                   onClick={() => dotClicked(idx)}
-                >
-                  {console.log(idx)}
-                </input>
+                ></input>
               );
             })}
           </div>
