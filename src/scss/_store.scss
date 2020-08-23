@@ -40,6 +40,10 @@
     margin: auto;
     color: $accentColor;
   }
+  &__list {
+    margin: auto;
+    max-width: 1680px;
+  }
   &__item {
     animation: $loadIn;
     display: inline-block;
@@ -47,13 +51,16 @@
     vertical-align: top;
     margin-bottom: 15px;
   }
-  img {
-    /* margin-bottom: 20px; */
-    height: 80%;
+  &__imgContainer {
     width: 80%;
-    object-fit: contain;
-    margin: 0 0 0 20px;
+    margin: 0 auto 15px auto;
+    img {
+      width: 100%;
+      margin: auto;
+      object-fit: contain;
+    }
   }
+
   &__info {
     width: 90%;
     margin: auto;

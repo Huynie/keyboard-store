@@ -46,23 +46,17 @@ export default function NavBar() {
               </Link>
             </li>
             <li className="menu--items">
-              <a href="./#about" onClick={() => closeNav()}>
+              {/* <a href="./#about" onClick={() => closeNav()}>
                 ABOUT
-              </a>
-              {/* <Link to="./#about">ABOUT</Link> */}
+              </a> */}
+              <Link to="/about">ABOUT</Link>
             </li>
             <li className="menu--items">
-              <a href="./#contact" onClick={() => closeNav()}>
+              {/* <a href="./#contact" onClick={() => closeNav()}>
                 CONTACT
-              </a>
+              </a> */}
 
-              {/* <Link
-              to={{
-                pathname: "./#contact",
-              }}
-            >
-              CONTACT
-            </Link> */}
+              <Link to="/contact">CONTACT</Link>
             </li>
             <li className="menu--items">
               <Link to="/cart" onClick={() => closeNav()}>

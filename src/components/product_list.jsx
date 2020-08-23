@@ -7,103 +7,110 @@ export const ProductList = (props) => {
   const [products] = useState([
     {
       name: "Ceramik White 60",
-      price: (80.0).toFixed(2),
+      price: 80,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k1.png") /* {
-        first: require("../images/k1.png"),
-        second: require("../images/k5.png"),
-      }, */,
       category: "full kit",
+      image: [
+        require("../images/k1.png"),
+        require("../images/k5.png"),
+        require("../images/k6.png"),
+        require("../images/k1.png"),
+        require("../images/k5.png"),
+        require("../images/k6.png"),
+      ],
     },
     {
       name: "Salmon Peach 60",
-      price: (70.0).toFixed(2),
+      price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k2.png"),
+      image: [require("../images/k2.png")],
       category: "full kit",
     },
     {
       name: "KIWI 60",
-      price: (70.0).toFixed(2),
+      price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k3.png"),
+      image: [require("../images/k3.png")],
       category: "full kit",
     },
     {
       name: "Sandstone 60",
-      price: (70.0).toFixed(2),
+      price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k4.png"),
+      image: [require("../images/k4.png")],
       category: "full kit",
     },
     {
       name: "Pomegranate 60",
-      price: (70.0).toFixed(2),
+      price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k10.png"),
+      image: [require("../images/k10.png")],
       category: "full kit",
     },
     {
       name: "Pastel 60",
-      price: (70.0).toFixed(2),
+      price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k11.png"),
+      image: [require("../images/k11.png")],
       category: "full kit",
     },
     {
       name: "Hubba Bubba Powder",
-      price: (70.0).toFixed(2),
+      price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k12.png"),
+      image: [require("../images/k12.png")],
       category: "full kit",
       featured: true,
     },
     {
       name: "Teal Grape",
-      price: (70.0).toFixed(2),
+      price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: require("../images/k13.png"),
+      image: [require("../images/k13.png")],
       featured: true,
       category: "full kit",
     },
     {
       name: "Lapis Lazuli",
-      price: (20.0).toFixed(2),
+      price: 20,
       description: "PBT Double shot keycaps",
-      image: require("../images/k14.png"),
+      image: [require("../images/k14.png")],
       category: "keycaps",
     },
     {
       name: "Jade",
-      price: (20.0).toFixed(2),
+      price: 20,
       description: "PBT Double shot keycaps",
-      image: require("../images/k17.png"),
+      image: [require("../images/k17.png")],
       category: "keycaps",
     },
     {
       name: "Bronze Knee-Cap",
-      price: (20.0).toFixed(2),
+      price: 20,
       description: "PBT Double shot keycaps",
-      image: require("../images/k16.png"),
+      image: [require("../images/k16.png")],
       category: "keycaps",
     },
     {
       name: "Bubble Gum",
-      price: (20.0).toFixed(2),
+      price: 20,
       description: "PBT Double shot keycaps",
-      image: require("../images/k15.png"),
+      image: [require("../images/k15.png")],
       category: "keycaps",
     },
   ]);
   const [category, setCategory] = useState("full kit");
+
+  //when clicking on a product from the store to view individually
+  const [itemPicked, setItemPicked] = useState([]);
 
   const getProductsInCategory = () => {
     return products.filter((product) => product.category === category);
@@ -197,6 +204,9 @@ export const ProductList = (props) => {
         totalPrice,
         getProductsInCategory,
         setCategory,
+        itemPicked,
+        setItemPicked,
+        /* getPickedItem, */
       }}
     >
       {props.children}

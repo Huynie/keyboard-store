@@ -20,9 +20,9 @@ function Cart() {
           {cart.map((product, idx) => {
             return (
               <div className="cart__items" key={idx}>
-                <img src={product.image} alt={product.name} />
+                <img src={product.image[0]} alt={product.name} />
                 <h2 className="cart__name">{product.name}</h2>
-                <h3 className="cart__price">${product.price}</h3>
+                <h3 className="cart__price">${product.price.toFixed(2)}</h3>
                 <div className="cart__buttons" key={idx}>
                   <div className="cart__quantity">
                     <input

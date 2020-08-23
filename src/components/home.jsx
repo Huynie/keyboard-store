@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
-import About from "./about";
-import Contact from "./contact";
+/* import About from "./about";
+import Contact from "./contact"; */
 
 export default function Home() {
-  const { products } = useContext(productContext);
+  const { products, setItemPicked } = useContext(productContext);
 
   return (
     <>
@@ -15,11 +15,15 @@ export default function Home() {
           .filter((featured) => featured.featured)
           .map((featured, idx) => {
             return (
-              <div className="featured" key={idx}>
+              <div
+                className="featured"
+                key={idx}
+                onClick={() => setItemPicked(featured)}
+              >
                 <Link
                   to={{
-                    pathname: "/items",
-                    item: featured,
+                    pathname: `/items/${featured.name}`,
+                    /* item: featured, */
                   }}
                 >
                   {" "}
@@ -29,10 +33,10 @@ export default function Home() {
               </div>
             );
           })}
-        <hr />
+        {/* <hr /> */}
       </div>
-      <About />
-      <Contact />
+      {/* <About />
+      <Contact /> */}
     </>
   );
 }

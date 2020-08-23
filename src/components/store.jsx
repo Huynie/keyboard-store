@@ -3,8 +3,12 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 
 export default function Store() {
-  const { getProductsInCategory, setCategory } = useContext(productContext);
-
+  const {
+    getProductsInCategory,
+    setCategory,
+    itemPicked,
+    setItemPicked,
+  } = useContext(productContext);
   return (
     <>
       <div className="product">
@@ -20,24 +24,35 @@ export default function Store() {
             <option value="keycaps">keycaps</option>
           </select>
         </div>
-        {getProductsInCategory().map((product, idx) => {
-          return (
-            <div className="product__item" key={idx}>
-              <Link
-                to={{
-                  pathname: `/items/${product.name}`,
-                  item: product,
-                }}
+        <div className="product__list">
+          {getProductsInCategory().map((product, idx) => {
+            return (
+              <div
+                className="product__item"
+                key={idx}
+                onClick={() => setItemPicked(product)}
               >
-                <img src={product.image} alt={product.name} />
-                <div className="product__info">
-                  <h2 className="product__name">{product.name}</h2>
-                  <h3 className="product__price">${product.price}</h3>
-                </div>
-              </Link>
-            </div>
-          );
-        })}
+                <Link
+                  to={{
+                    pathname: `/items/${product.name}`,
+                    /* item: product,
+                    image: product.image, */
+                  }}
+                >
+                  <div className="product__imgContainer">
+                    <img src={product.image[0]} alt={product.name} />
+                  </div>
+                  <div className="product__info">
+                    <h2 className="product__name">{product.name}</h2>
+                    <h3 className="product__price">
+                      ${product.price.toFixed(2)}
+                    </h3>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );

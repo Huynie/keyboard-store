@@ -17,15 +17,45 @@
     display: block;
     margin: 5px auto;
   }
-  &__list {
+  &__slider {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
     margin: 25px;
+    width: auto;
+    height: 100%;
+    display: flex;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
+  &__images,
   img {
-    display: block;
+    scroll-snap-align: start;
     margin: auto;
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    min-width: 100%;
     object-fit: cover;
+  }
+  &__dotsContainer {
+    width: max-content;
+    margin: auto;
+    display: flex;
+
+    &--dots {
+      outline: none;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      border: none;
+      background: rgba(255, 255, 255, 0.466);
+    }
+
+    .current-image {
+      background: white;
+    }
   }
   &__name {
     color: $fontColor;
