@@ -135,9 +135,9 @@ export const ProductList = (props) => {
 
     //changes cart icon when added to cart
     const icon = document.querySelector("nav .cart__icon");
-    icon.style.background = `url(' ${require("../images/Cart_clicked.png")}')`;
+    icon.style.background = `url(' ${require("../images/clicked.svg")}')`;
     icon.style.backgroundSize = "contain";
-    icon.style.color = "rgb(50, 76, 92)";
+    icon.style.color = "#ee6b61";
     setTimeout(() => {
       icon.removeAttribute("style");
     }, 200);

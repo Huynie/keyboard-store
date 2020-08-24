@@ -1,9 +1,11 @@
 //base
-$fontColor: rgb(181, 207, 204);
-$typeFace: helvetica;
-$background-color: rgb(50, 76, 92);
-$accentColor: rgb(235, 164, 57);
-$priceColor: rgb(91, 223, 172);
+$fontColor: #eff2dd;
+$background-color: #bdd7d6;
+$accentColor: #ee6b61;
+$priceColor: #516365;
+$navColor: #7f9d9d;
+$typeFace: "Righteous", cursive;
+$titleFont: Righteous;
 $loadIn: loadIn 0.8s;
 
 @keyframes loadIn {
@@ -16,12 +18,21 @@ $loadIn: loadIn 0.8s;
     transform: translateY(0);
   }
 }
-/* :root {
-  height: 100%;
-} */
+
 * {
   margin: 0;
   padding: 0;
+}
+:root {
+  background: chartreuse;
+  /* height: auto; */
+}
+body {
+  & > #root {
+    background: $background-color;
+    /* position: relative; */
+    height: 100%;
+  }
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -29,8 +40,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background: $background-color;
 }
 //SCROLL BAR
 ::-webkit-scrollbar {

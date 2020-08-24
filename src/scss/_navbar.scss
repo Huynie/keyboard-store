@@ -5,11 +5,11 @@ header {
   top: -1px;
   width: 100vw;
   margin: auto;
-  background: $background-color;
+  background: $navColor;
   z-index: 5;
 }
 nav {
-  background: $background-color;
+  background: $navColor;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -22,9 +22,7 @@ nav {
   .brand {
     margin: 15px auto;
     z-index: 1;
-    background: $accentColor;
-    height: 24px;
-    width: 108px;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,6 +35,10 @@ nav {
       font: normal normal 900 30px $typeFace;
       letter-spacing: -0.06em;
       text-decoration: none;
+    }
+    img {
+      height: 100%;
+      width: 100%;
     }
   }
   .menu {
@@ -59,7 +61,7 @@ nav {
       width: max-content;
 
       & a {
-        color: $background-color;
+        color: $fontColor;
         text-decoration: none;
       }
     }
@@ -105,7 +107,7 @@ nav {
       position: relative;
       width: 100%;
       height: 1px;
-      background: $accentColor;
+      background: $fontColor;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -174,8 +176,8 @@ nav {
       z-index: 120;
 
       &:checked ~ .cart__icon {
-        color: $background-color;
-        background: url(./images/Cart_clicked.png);
+        color: $accentColor;
+        background: url(./images/clicked.svg);
         background-size: contain;
       }
       &:checked ~ .cart__menu {
@@ -195,7 +197,7 @@ nav {
     }
   }
   .cart__menu {
-    background: rgb(28, 63, 83);
+    background: $priceColor;
     height: 100vh;
     width: 80vw;
     right: -80vw;
@@ -208,15 +210,43 @@ nav {
     padding: 0;
     margin: 0;
 
+    h1 {
+      color: $fontColor;
+    }
+
     & > div .cart__checkout {
-      background: $background-color;
+      background: transparent;
       position: absolute;
       bottom: 0;
       height: 12vh;
     }
+    .cart__list {
+      height: 77vh;
+    }
+    .cart__name {
+      color: $fontColor;
+    }
+    .cart__price {
+      color: $background-color;
+    }
+    & button {
+      background: $accentColor;
+      color: $fontColor;
+    }
+    .cart__quantity {
+      border-color: $fontColor;
+      &--increment {
+        color: $fontColor;
+        /* background: transparent; */
+      }
+      &--count {
+        background: transparent;
+        color: $fontColor;
+      }
+    }
   }
   .cart__icon {
-    background: url(./images/Cart.png) no-repeat;
+    background: url(./images/cart.svg) no-repeat;
     background-size: contain;
     z-index: 119;
     border-color: $accentColor;
@@ -230,7 +260,7 @@ nav {
     width: 38px;
     font: normal normal 500 12px $typeFace;
     margin: 16px;
-    color: $accentColor;
+    color: $fontColor;
     display: flex;
     justify-content: center;
     line-height: 280%;
@@ -242,8 +272,8 @@ nav {
 }
 .announcement {
   width: 100%;
-  color: $background-color;
-  font: normal normal 700 18px $typeFace;
+  color: $fontColor;
+  font: normal normal 500 18px $titleFont;
   background: $accentColor;
   p {
     text-align: center;

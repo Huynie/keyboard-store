@@ -8,18 +8,18 @@
 
   &__category {
     margin: auto;
-    color: $accentColor;
+    color: $fontColor;
     /* width: max-content; */
-    background: rgb(47, 68, 82);
+    background: $navColor;
     display: flex;
     justify-content: center;
     align-items: center;
     & select {
       width: max-content;
       outline: none;
-      background: rgb(47, 68, 82);
+      background: $navColor;
       border: none;
-      color: $accentColor;
+      color: $fontColor;
       padding: 10px;
     }
     & option {
@@ -28,7 +28,7 @@
 
       &:focus,
       :hover {
-        background: $accentColor;
+        background: $fontColor;
       }
     }
   }
@@ -66,7 +66,7 @@
     margin: auto;
   }
   &__name {
-    color: $fontColor;
+    color: $accentColor;
     font: normal normal 700 16px Helvetica;
     letter-spacing: 0.1em;
     word-wrap: break-word;

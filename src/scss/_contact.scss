@@ -1,13 +1,13 @@
 .contact {
   animation: $loadIn;
   text-align: center;
-  margin: auto;
   color: $fontColor;
-  /* height: 100vh; */
-  padding: 45vh 0;
+  height: 100%;
+  /* padding: 45vh 0; */
   & > div {
+    /* height: 100%; */
     /* width: 80%; */
-    margin: auto;
+    margin: 50% auto;
     h1 {
       margin: auto;
       width: max-content;

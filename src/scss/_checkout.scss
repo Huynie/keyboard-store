@@ -1,6 +1,6 @@
 .checkout {
   animation: $loadIn;
-  color: $fontColor;
+  color: $priceColor;
   margin: 50px auto;
   font: normal normal 300 18px $typeFace;
   text-align: center;
@@ -9,7 +9,7 @@
     width: 95%;
     margin: 5px auto 10px auto;
     border: 0;
-    background: $accentColor;
+    background: $navColor;
   }
   &__title {
     margin: 20px auto;
@@ -86,11 +86,11 @@
     border-radius: 5px;
     background: $accentColor;
     font: normal normal 700 20px $typeFace;
-    color: $background-color;
+    color: $fontColor;
     outline: none;
 
     &:active {
-      background: rgb(219, 156, 61);
+      background: rgb(221, 117, 117);
     }
   }
 }

@@ -26,7 +26,9 @@ export default function NavBar() {
           <div></div>
         </div>
         <div className="brand">
-          <Link to="/">KEYBZ</Link>
+          <Link to="/">
+            <img src={require("../images/logo02.svg")} alt="" />
+          </Link>
         </div>
         <input type="checkbox" className="toggle__cart" />
         <div className="cart__icon">{totalItemsInCart}</div>

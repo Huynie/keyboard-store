@@ -1,7 +1,7 @@
 //CART
 .cart {
   background: transparent;
-  height: 100%;
+  /* height: 60vh !important; */
   width: 100%;
   z-index: 106;
   display: block;
@@ -28,7 +28,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: start; */
-    height: 80%;
     overflow-x: hidden;
     overflow-y: scroll;
     width: max-content;
@@ -69,8 +68,8 @@
   &__name {
     grid-row: 1;
     grid-column: 2;
-    color: $fontColor;
-    font: normal normal 700 20px $typeFace;
+    color: $accentColor;
+    font: normal normal 700 18px $typeFace;
     letter-spacing: 0.1em;
     align-self: start;
     white-space: nowrap;
@@ -80,7 +79,7 @@
   &__price {
     grid-row: 1;
     grid-column: 2;
-    font: normal normal 600 14px $typeFace;
+    font: normal normal 500 14px $typeFace;
     letter-spacing: 0.1em;
     color: $priceColor;
     align-self: end;
@@ -90,7 +89,7 @@
     grid-row: 2;
     grid-column: 2;
     display: flex;
-    margin: 5px 0;
+    margin: 12px 0 0 0;
     /* width: max-content; */
   }
   &__remove {
@@ -106,11 +105,12 @@
     color: $accentColor;
     justify-self: start;
     margin-left: 5px;
+    outline: none;
   }
   &__quantity {
     color: $accentColor;
     height: 30px;
-    width: 80px;
+    width: max-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -149,16 +149,15 @@
   }
   &__checkout {
     width: 100%;
-    height: 10%;
+    height: 100%;
     /* position: absolute; */
     bottom: 0;
     text-align: center;
     margin-top: auto;
-    color: $accentColor;
     outline: none;
 
     a {
-      color: $background-color;
+      color: $fontColor;
       text-decoration: none;
       top: 50vh;
     }
@@ -167,7 +166,7 @@
       height: max-content;
       width: max-content;
       display: block;
-      margin: 15px auto;
+      margin: 25px auto 0 auto;
       padding: 8px 15px;
       border-color: $accentColor;
       border-style: solid;

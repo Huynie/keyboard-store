@@ -3,14 +3,7 @@ import { productContext } from "./product_list";
 import { Redirect } from "react-router-dom";
 
 export default function Items() {
-  const {
-    addToCart,
-    itemPicked,
-    /* setItemPicked,
-    setQuantity,
-    quantityIncrease,
-    quantityDecrease, */
-  } = useContext(productContext);
+  const { addToCart, itemPicked } = useContext(productContext);
 
   const carousel = () => {
     if (itemPicked > "") {
@@ -89,32 +82,11 @@ export default function Items() {
           </div>
           <h1 className="items__name">{itemPicked.name}</h1>
           <h3 className="items__price">${itemPicked.price.toFixed(2)}</h3>
-          {/* <div className="items__quantity">
-            <input
-              className="items__quantity--increment"
-              type="button"
-              value="+"
-              id="increase"
-              onClick={() => quantityIncrease(itemPicked)}
-            />
-            <input
-              className="items__quantity--count"
-              type="number"
-              value={itemPicked.quantity}
-              onChange={(e) => setQuantity(itemPicked, parseInt(e.target.value))}
-            />
-            <input
-              className="items__quantity--increment"
-              type="button"
-              value="-"
-              id="decrease"
-              onClick={() => quantityDecrease(itemPicked)}
-            />
-          </div> */}
+          <p className="items__description">{itemPicked.description}</p>
+
           <button className="items__btn" onClick={() => addToCart(itemPicked)}>
             add to cart
           </button>
-          <p className="items__description">{itemPicked.description}</p>
         </div>
       </>
     );

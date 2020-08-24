@@ -3,9 +3,13 @@ footer {
   /* padding: 20px 50px; */
   font: normal normal 100 14px $typeFace;
   letter-spacing: 0.2em;
-  background-color: $background-color;
+  background-color: $navColor;
   color: $fontColor;
   text-align: center;
+  position: relative;
+  bottom: 0;
+  opacity: 0.5;
+  height: 100%;
 
   hr {
     display: block;
