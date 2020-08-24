@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext /* useEffect */ } from "react";
 import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 /* import About from "./about";
@@ -40,11 +40,11 @@ export default function Home() {
     carousel();
   }); */
 
-  const dotClicked = (dotIdx) => {
+  /* const dotClicked = (dotIdx) => {
     const slideView = document.querySelector(".items__slider");
     const slides = Array.from(slideView.children);
     slides[dotIdx].scrollIntoView({ block: "center", inline: "center" });
-  };
+  }; */
   return (
     <div className="homePage" id="featured">
       <div className="featured">
