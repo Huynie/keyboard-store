@@ -220,28 +220,37 @@ nav {
       bottom: 0;
       height: 12vh;
     }
-    .cart__list {
-      height: 77vh;
-    }
-    .cart__name {
-      color: $fontColor;
-    }
-    .cart__price {
-      color: $background-color;
-    }
-    & button {
-      background: $accentColor;
-      color: $fontColor;
-    }
-    .cart__quantity {
-      border-color: $fontColor;
-      &--increment {
-        color: $fontColor;
-        /* background: transparent; */
+    .cart {
+      color: $accentColor;
+      background: transparent;
+
+      &__list {
+        height: 77vh;
       }
-      &--count {
-        background: transparent;
+      &__name {
         color: $fontColor;
+      }
+      &__price {
+        color: $background-color;
+      }
+      &__remove {
+        border: 0;
+        background: $accentColor;
+        color: $fontColor;
+      }
+      &__quantity {
+        /* border: 0; */
+        color: $fontColor;
+        background: $navColor;
+
+        &--increment {
+          color: inherit;
+          /* background: inherit; */
+        }
+        &--count {
+          /* background: inherit; */
+          color: inherit;
+        }
       }
     }
   }
@@ -273,10 +282,11 @@ nav {
 .announcement {
   width: 100%;
   color: $fontColor;
-  font: normal normal 500 18px $titleFont;
+  font: normal normal 400 18px $typeFace2;
   background: $accentColor;
+  /* padding: 5px; */
   p {
     text-align: center;
-    padding: 5px;
+    padding: 10px;
   }
 }

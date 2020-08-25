@@ -1,9 +1,12 @@
 .checkout {
+  background: $background-color;
   animation: $loadIn;
   color: $priceColor;
-  margin: 50px auto;
-  font: normal normal 300 18px $typeFace;
+  height: 100%;
+  margin: auto;
+  font: normal normal 400 18px $typeFace2;
   text-align: center;
+
   hr {
     height: 1px;
     width: 95%;
@@ -12,6 +15,8 @@
     background: $navColor;
   }
   &__title {
+    font-family: $typeFace;
+    letter-spacing: 0.1em;
     margin: 20px auto;
     color: $accentColor;
     word-break: break-word;
@@ -29,7 +34,7 @@
 
       flex: 8;
       padding: 5px 5px;
-      font: normal normal 500 20px $typeFace;
+      font: normal normal 500 20px $typeFace2;
       text-align: start;
 
       img {
@@ -73,7 +78,7 @@
     }
     &--grandTotal {
       color: $priceColor;
-      font: normal normal 700 18px $typeFace;
+      font: normal normal 700 18px $typeFace2;
     }
   }
   &__order {
@@ -85,12 +90,25 @@
     border: $accentColor solid 1px;
     border-radius: 5px;
     background: $accentColor;
-    font: normal normal 700 20px $typeFace;
+    font: normal normal 700 20px $typeFace2;
     color: $fontColor;
     outline: none;
 
     &:active {
       background: rgb(221, 117, 117);
     }
+  }
+  &__empty {
+    font: normal normal 400 20px $typeFace;
+    color: $accentColor;
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 40vh;
+    bottom: 40vh;
+    left: 0;
+    right: 0;
   }
 }

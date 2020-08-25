@@ -51,8 +51,8 @@ export default function App() {
             />
             <Route path="/contact" component={contact} />
           </Switch>
+          <Footer />
         </ProductList>
-        <Footer />
       </Router>
     </>
   );

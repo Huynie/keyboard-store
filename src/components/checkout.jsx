@@ -62,6 +62,10 @@ export default function Checkout() {
       </div>
     );
   } else {
-    return <div className="checkout">nothing here</div>;
+    return (
+      <div className="checkout">
+        <div className="checkout__empty">nothing here</div>
+      </div>
+    );
   }
 }

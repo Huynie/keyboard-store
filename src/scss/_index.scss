@@ -16,15 +16,20 @@
     animation: $loadIn;
     display: flex;
     text-decoration: none;
-    width: 100vw;
+    width: 100%;
     height: auto;
     overflow-x: scroll;
     background: rgb(146, 130, 130);
     position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
     &::-webkit-scrollbar {
       display: none;
     }
 
+    &__slide,
     a {
       text-decoration: none;
       scroll-snap-align: start;
@@ -67,6 +72,9 @@
         margin: 0 10px;
         border: none;
         background: $navColor;
+      }
+      .currentDot {
+        background: $priceColor;
       }
     }
   }

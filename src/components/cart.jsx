@@ -26,7 +26,7 @@ function Cart() {
                 <div className="cart__buttons" key={idx}>
                   <div className="cart__quantity">
                     <input
-                      className="cart__quantity--increment"
+                      className="cart__quantity--decrement"
                       type="button"
                       value="-"
                       id="decrease"
@@ -49,12 +49,12 @@ function Cart() {
                       onClick={() => quantityIncrease(product)}
                     />
                   </div>
-                  <button
+                  <input
+                    type="button"
                     className="cart__remove"
+                    value="Remove"
                     onClick={() => removeFromCart(product)}
-                  >
-                    Remove
-                  </button>
+                  />
                 </div>
               </div>
             );

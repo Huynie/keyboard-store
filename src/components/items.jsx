@@ -85,7 +85,7 @@ export default function Items() {
           <p className="items__description">{itemPicked.description}</p>
 
           <button className="items__btn" onClick={() => addToCart(itemPicked)}>
-            add to cart
+            ADD TO CART
           </button>
         </div>
       </>

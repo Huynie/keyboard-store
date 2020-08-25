@@ -1,16 +1,17 @@
 //CART
 .cart {
-  background: transparent;
-  /* height: 60vh !important; */
+  background: $background-color;
+  min-height: 65vh;
+  height: 100%;
   width: 100%;
   z-index: 106;
-  display: block;
+  display: flexbox;
 
   h1 {
     display: block;
     width: max-content;
     /*    top: 15px; */
-    font: normal normal 700 25px $typeFace;
+    font: normal normal 500 25px $typeFace;
     color: $accentColor;
     margin: 30px auto 0 25px;
   }
@@ -68,8 +69,8 @@
   &__name {
     grid-row: 1;
     grid-column: 2;
-    color: $accentColor;
-    font: normal normal 700 18px $typeFace;
+    color: $priceColor;
+    font: normal normal 500 18px $typeFace;
     letter-spacing: 0.1em;
     align-self: start;
     white-space: nowrap;
@@ -81,7 +82,7 @@
     grid-column: 2;
     font: normal normal 500 14px $typeFace;
     letter-spacing: 0.1em;
-    color: $priceColor;
+    color: $navColor;
     align-self: end;
     /* width: max-content; */
   }
@@ -93,49 +94,46 @@
     /* width: max-content; */
   }
   &__remove {
-    border-color: $accentColor;
-    border-style: solid;
-    border-width: 1px;
     border-radius: 5px;
-    background: transparent;
-    font: normal normal 700 12px $typeFace;
+    border: inherit;
+    background: $navColor;
+    font: normal normal 300 10px $typeFace;
     letter-spacing: 0.3em;
-    height: 33px;
+    height: 31px;
     padding: 0 10px;
-    color: $accentColor;
+    color: $fontColor;
     justify-self: start;
     margin-left: 5px;
-    outline: none;
   }
   &__quantity {
-    color: $accentColor;
+    color: $fontColor;
     height: 30px;
     width: max-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-color: $accentColor;
-    border-style: solid;
-    border-width: 1px;
     border-radius: 5px;
     justify-self: start;
+    background: $priceColor;
+    /* border: 1px solid $navColor; */
 
     &--count {
-      border: 0;
+      border: inherit;
       max-width: 30px;
       max-height: 30px;
-      background: $background-color;
+      background: transparent;
       width: inherit;
       height: inherit;
       text-align: center;
-      color: $accentColor;
+      color: inherit;
       outline: none;
     }
-    &--increment {
+    &--increment,
+    &--decrement {
       width: 20px;
       height: 30px;
       color: inherit;
-      border: none;
+      border: inherit;
       outline: none;
       background: transparent;
       /* &:hover {
@@ -145,6 +143,14 @@
         background: $accentColor;
         color: $background-color;
       }
+    }
+    &--decrement:active {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    &--increment:active {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   }
   &__checkout {
@@ -156,6 +162,19 @@
     margin-top: auto;
     outline: none;
 
+    &--empty {
+      font: normal normal 400 20px $typeFace;
+      color: $accentColor;
+      width: max-content;
+      height: max-content;
+      margin: auto;
+      letter-spacing: 0.1em;
+      position: absolute;
+      top: 40vh;
+      bottom: 40vh;
+      left: 0;
+      right: 0;
+    }
     a {
       color: $fontColor;
       text-decoration: none;
@@ -163,18 +182,19 @@
     }
 
     button {
+      font: normal normal 400 20px $typeFace;
       height: max-content;
       width: max-content;
       display: block;
       margin: 25px auto 0 auto;
-      padding: 8px 15px;
+      padding: 15px 25px;
       border-color: $accentColor;
       border-style: solid;
       border-width: 1px;
       border-radius: 5px;
       background: $accentColor;
-      font: normal normal 700 20px $typeFace;
       color: $background-color;
+      letter-spacing: 0.1em;
 
       &:hover {
         background: transparent;

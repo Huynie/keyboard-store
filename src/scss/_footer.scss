@@ -6,10 +6,11 @@ footer {
   background-color: $navColor;
   color: $fontColor;
   text-align: center;
+  width: 100vw;
   position: relative;
+  left: 0;
   bottom: 0;
-  opacity: 0.5;
-  height: 100%;
+  right: 0;
 
   hr {
     display: block;

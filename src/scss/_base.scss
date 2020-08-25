@@ -5,7 +5,7 @@ $accentColor: #ee6b61;
 $priceColor: #516365;
 $navColor: #7f9d9d;
 $typeFace: "Righteous", cursive;
-$titleFont: Righteous;
+$typeFace2: "Roboto";
 $loadIn: loadIn 0.8s;
 
 @keyframes loadIn {
@@ -23,24 +23,23 @@ $loadIn: loadIn 0.8s;
   margin: 0;
   padding: 0;
 }
-:root {
-  background: chartreuse;
-  /* height: auto; */
-}
-body {
-  & > #root {
+html {
+  background: $background-color;
+  height: 100%;
+
+  body {
     background: $background-color;
-    /* position: relative; */
-    height: 100%;
+    min-height: 100%;
+    & > #root {
+      background: $background-color;
+      height: 100vh;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 //SCROLL BAR
 ::-webkit-scrollbar {
   width: 10px;
