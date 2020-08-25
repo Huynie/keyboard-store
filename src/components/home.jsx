@@ -16,8 +16,6 @@ export default function Home() {
 
       const options = { threshold: 0.5, root: container };
       const observer = new IntersectionObserver((entries) => {
-        /* console.log(entries); */
-        //my own
         entries.forEach((entry) => {
           if (entry.isIntersecting === true) {
             const show = entry.target.getAttribute("id");
@@ -46,7 +44,6 @@ export default function Home() {
     slides[dotIdx].scrollIntoView({ block: "center", inline: "center" });
   };
   return (
-    //Featured Slider
     <div className="homePage" id="featured">
       <div className="featured">
         {products
@@ -60,7 +57,6 @@ export default function Home() {
                 onClick={() => setItemPicked(featured)}
                 to={{
                   pathname: `/items/${featured.name}`,
-                  /* item: featured, */
                 }}
               >
                 {" "}
@@ -70,7 +66,6 @@ export default function Home() {
             );
           })}
       </div>
-      {/* Dots */}
       <div className="featured__dotsContainer">
         {products
           .filter((featured) => featured.featured)
