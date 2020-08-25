@@ -16,7 +16,7 @@ export default function Home() {
 
       const options = { threshold: 0.5, root: container };
       const observer = new IntersectionObserver((entries) => {
-        console.log(entries);
+        /* console.log(entries); */
         //my own
         entries.forEach((entry) => {
           if (entry.isIntersecting === true) {
