@@ -20,20 +20,10 @@ export default function NavBar() {
   );
   return (
     <header>
-      <nav className="nav">
+      <nav className="mobile">
         <input type="checkbox" className="toggle" />
         <div className="hamburger">
           <div></div>
-        </div>
-        <div className="brand">
-          <Link to="/">
-            <img src={require("../images/logo02.svg")} alt="" />
-          </Link>
-        </div>
-        <input type="checkbox" className="toggle__cart" />
-        <div className="cart__icon">{totalItemsInCart}</div>
-        <div className="cart__menu">
-          <Cart />
         </div>
         <div className="menu">
           <ul>
@@ -72,8 +62,57 @@ export default function NavBar() {
             <img src={require("../images/TW White.png")} alt="" />
           </div>
         </div>
+        <div className="brand">
+          <Link to="/">
+            <img src={require("../images/logo02.svg")} alt="" />
+          </Link>
+        </div>
+        <input type="checkbox" className="toggle__cart" />
+        <div className="cart__icon">{totalItemsInCart}</div>
+        <div className="cart__menu">
+          <Cart />
+        </div>
         <div onClick={() => closeNav()} className="menu--transparency"></div>
       </nav>
+      <div className="desktop">
+        <ul className="desktop__nav--left">
+          <li className="menu--items">
+            <Link to="/" onClick={() => closeNav()}>
+              HOME
+            </Link>
+          </li>
+          <li className="menu--items">
+            <Link to="/Store" onClick={() => closeNav()}>
+              SHOP
+            </Link>
+          </li>
+        </ul>
+        <div className="desktop__brand">
+          <Link to="/">
+            <img src={require("../images/logo02.svg")} alt="" />
+          </Link>
+        </div>
+        <ul className="desktop__nav--right">
+          <li className="menu--items">
+            {/* <a href="./#about" onClick={() => closeNav()}>
+                ABOUT
+              </a> */}
+            <Link to="/about">ABOUT</Link>
+          </li>
+          <li className="menu--items">
+            {/* <a href="./#contact" onClick={() => closeNav()}>
+                CONTACT
+              </a> */}
+
+            <Link to="/contact">CONTACT</Link>
+          </li>
+          <li className="menu--items">
+            <Link to="/cart" onClick={() => closeNav()}>
+              CART
+            </Link>
+          </li>
+        </ul>
+      </div>
       <div className="announcement">
         <p>Due to COVID-19 shipping will be delayed click here to learn more</p>
       </div>

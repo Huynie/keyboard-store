@@ -15,7 +15,6 @@ export default function Items() {
 
       const options = { threshold: 0.5, root: container };
       const observer = new IntersectionObserver((entries) => {
-        //my own
         entries.forEach((entry) => {
           if (entry.isIntersecting === true) {
             const show = entry.target.getAttribute("id");
@@ -48,45 +47,51 @@ export default function Items() {
     return (
       <>
         <div className="items">
-          <div className="items__slider">
-            {
-              //Maps array of image url and outputs img tag for each
-              itemPicked.image.map((image, idx) => {
+          <div className="items__carousel">
+            <div className="items__slider">
+              {
+                //Maps array of image url and outputs img tag for each
+                itemPicked.image.map((image, idx) => {
+                  return (
+                    <img
+                      className="items__images"
+                      src={image}
+                      alt={idx}
+                      key={idx}
+                      id={idx}
+                      width="100"
+                      height="100"
+                    />
+                  );
+                })
+              }
+            </div>
+            <div className="items__dotsContainer">
+              {itemPicked.image.map((image, idx) => {
                 return (
-                  <img
-                    className="items__images"
-                    src={image}
-                    alt={idx}
+                  <input
+                    className="items__dotsContainer--dots"
+                    type="button"
                     key={idx}
                     id={idx}
-                    width="100"
-                    height="100"
-                  />
+                    value={image.index}
+                    onClick={() => dotClicked(idx)}
+                  ></input>
                 );
-              })
-            }
+              })}
+            </div>
           </div>
-          <div className="items__dotsContainer">
-            {itemPicked.image.map((image, idx) => {
-              return (
-                <input
-                  className="items__dotsContainer--dots"
-                  type="button"
-                  key={idx}
-                  id={idx}
-                  value={image.index}
-                  onClick={() => dotClicked(idx)}
-                ></input>
-              );
-            })}
+          <div className="items__info">
+            <h1 className="items__name">{itemPicked.name}</h1>
+            <h3 className="items__price">${itemPicked.price.toFixed(2)}</h3>
+            <p className="items__description">{itemPicked.description}</p>
+            <button
+              className="items__btn"
+              onClick={() => addToCart(itemPicked)}
+            >
+              ADD TO CART
+            </button>
           </div>
-          <h1 className="items__name">{itemPicked.name}</h1>
-          <h3 className="items__price">${itemPicked.price.toFixed(2)}</h3>
-          <p className="items__description">{itemPicked.description}</p>
-
-          <button className="items__btn" onClick={() => addToCart(itemPicked)}>
-            ADD TO CART
-          </button>
         </div>
       </>
     );

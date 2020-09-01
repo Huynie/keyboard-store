@@ -32,8 +32,6 @@ export default function Store() {
                 <Link
                   to={{
                     pathname: `/items/${product.name}`,
-                    /* item: product,
-                    image: product.image, */
                   }}
                 >
                   <div className="product__imgContainer">

@@ -32,13 +32,13 @@ html {
 header {
   position: sticky;
   position: -webkit-sticky;
-  top: -1px;
-  width: 100vw;
+  top: 0px;
   margin: auto;
   background: #7f9d9d;
-  z-index: 5; }
+  z-index: 5;
+  width: 100vw; }
 
-nav {
+.mobile {
   background: #7f9d9d;
   display: flex;
   justify-content: space-around;
@@ -48,14 +48,14 @@ nav {
   margin: auto;
   position: relative;
   top: 0; }
-  nav .brand {
+  .mobile .brand {
     margin: 15px auto;
     z-index: 1;
     background: transparent;
     display: flex;
     align-items: center;
     justify-content: center; }
-    nav .brand a {
+    .mobile .brand a {
       height: 45px;
       width: 110px;
       background: transparent;
@@ -63,10 +63,10 @@ nav {
       font: normal normal 900 30px "Righteous", cursive;
       letter-spacing: -0.06em;
       text-decoration: none; }
-    nav .brand img {
+    .mobile .brand img {
       height: 100%;
       width: 100%; }
-  nav .menu {
+  .mobile .menu {
     background: #ee6b61;
     height: 100vh;
     position: absolute;
@@ -76,17 +76,17 @@ nav {
     opacity: 0;
     transition: left 0.4s ease, opacity 0.4s ease;
     padding: 70px 20px; }
-    nav .menu--items {
+    .mobile .menu--items {
       list-style: none;
       margin: 20px 10px;
       font: normal normal 700 20px "Righteous", cursive;
       letter-spacing: 0.1em;
       text-decoration: none;
       width: max-content; }
-      nav .menu--items a {
+      .mobile .menu--items a {
         color: #eff2dd;
         text-decoration: none; }
-    nav .menu--transparency {
+    .mobile .menu--transparency {
       background-color: rgba(26, 68, 107, 0.4);
       position: absolute;
       right: 0;
@@ -96,17 +96,17 @@ nav {
       z-index: 0;
       opacity: 0;
       visibility: hidden; }
-    nav .menu--social {
+    .mobile .menu--social {
       position: absolute;
       top: 90vh;
       display: flex;
       width: max-content;
       margin: auto; }
-      nav .menu--social img {
+      .mobile .menu--social img {
         width: 30px;
         height: 30px;
         margin: 0 7px; }
-  nav .hamburger {
+  .mobile .hamburger {
     z-index: 99;
     position: relative;
     left: 0;
@@ -117,7 +117,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center; }
-    nav .hamburger > div {
+    .mobile .hamburger > div {
       left: 0;
       position: relative;
       width: 100%;
@@ -128,7 +128,7 @@ nav {
       justify-content: center;
       transition: all 0.4s ease;
       /* transition-delay: -0.08s; */ }
-      nav .hamburger > div:before, nav .hamburger > div:after {
+      .mobile .hamburger > div:before, .mobile .hamburger > div:after {
         content: "";
         position: absolute;
         z-index: 999;
@@ -136,58 +136,58 @@ nav {
         width: 100%;
         height: 1px;
         background: inherit; }
-      nav .hamburger > div:after {
+      .mobile .hamburger > div:after {
         top: 8px; }
-  nav [type="checkbox"] {
+  .mobile [type="checkbox"] {
     width: 50px;
     height: 50px;
     margin: 10px;
     opacity: 0; }
-  nav .toggle {
+  .mobile .toggle {
     z-index: 100;
     position: absolute;
     left: 0; }
-    nav .toggle:checked ~ .menu--transparency {
+    .mobile .toggle:checked ~ .menu--transparency {
       visibility: visible;
       z-index: 90;
       opacity: 1;
       transition: opacity 0.4s ease; }
-    nav .toggle:checked + .hamburger > div {
+    .mobile .toggle:checked + .hamburger > div {
       background: #bdd7d6;
       transform: rotate(45deg);
       transition-delay: 0.05s; }
-      nav .toggle:checked + .hamburger > div:before, nav .toggle:checked + .hamburger > div:after {
+      .mobile .toggle:checked + .hamburger > div:before, .mobile .toggle:checked + .hamburger > div:after {
         background: #bdd7d6;
         top: 0;
         transform: rotate(90deg); }
-    nav .toggle:checked ~ .menu {
+    .mobile .toggle:checked ~ .menu {
       left: 0;
       opacity: 1;
       transition: left 0.4s ease, opacity 0.4s ease; }
-    nav .toggle:checked ~ .toggle__cart {
+    .mobile .toggle:checked ~ .toggle__cart {
       z-index: 80; }
-    nav .toggle:checked ~ .cart__icon {
+    .mobile .toggle:checked ~ .cart__icon {
       z-index: 80; }
-    nav .toggle__cart {
+    .mobile .toggle__cart {
       position: absolute;
       right: 0;
       z-index: 120; }
-      nav .toggle__cart:checked ~ .cart__icon {
+      .mobile .toggle__cart:checked ~ .cart__icon {
         color: #ee6b61;
         background: url(./images/clicked.svg);
         background-size: contain; }
-      nav .toggle__cart:checked ~ .cart__menu {
+      .mobile .toggle__cart:checked ~ .cart__menu {
         right: 0px;
         opacity: 1;
         transition: right 0.4s ease, opacity 0.4s ease; }
-      nav .toggle__cart:checked ~ .menu--transparency {
+      .mobile .toggle__cart:checked ~ .menu--transparency {
         visibility: visible;
         z-index: 101;
         opacity: 1;
         transition: opacity 0.4s ease; }
-      nav .toggle__cart:checked {
+      .mobile .toggle__cart:checked {
         z-index: 120; }
-  nav .cart__menu {
+  .mobile .cart__menu {
     background: #516365;
     height: 100vh;
     width: 80vw;
@@ -200,37 +200,37 @@ nav {
     transition: right 0.4s ease, opacity 0.4s ease;
     padding: 0;
     margin: 0; }
-    nav .cart__menu h1 {
+    .mobile .cart__menu h1 {
       color: #eff2dd; }
-    nav .cart__menu > div .cart__checkout {
+    .mobile .cart__menu > div .cart__checkout {
       background: transparent;
       position: absolute;
       bottom: 0;
       height: 12vh; }
-    nav .cart__menu .cart {
+    .mobile .cart__menu .cart {
       color: #ee6b61;
       background: transparent; }
-      nav .cart__menu .cart__list {
+      .mobile .cart__menu .cart__list {
         height: 77vh; }
-      nav .cart__menu .cart__name {
+      .mobile .cart__menu .cart__name {
         color: #eff2dd; }
-      nav .cart__menu .cart__price {
+      .mobile .cart__menu .cart__price {
         color: #bdd7d6; }
-      nav .cart__menu .cart__remove {
+      .mobile .cart__menu .cart__remove {
         border: 0;
         background: #ee6b61;
         color: #eff2dd; }
-      nav .cart__menu .cart__quantity {
+      .mobile .cart__menu .cart__quantity {
         /* border: 0; */
         color: #eff2dd;
         background: #7f9d9d; }
-        nav .cart__menu .cart__quantity--increment {
+        .mobile .cart__menu .cart__quantity--increment {
           color: inherit;
           /* background: inherit; */ }
-        nav .cart__menu .cart__quantity--count {
+        .mobile .cart__menu .cart__quantity--count {
           /* background: inherit; */
           color: inherit; }
-  nav .cart__icon {
+  .mobile .cart__icon {
     background: url(./images/cart.svg) no-repeat;
     background-size: contain;
     z-index: 119;
@@ -249,8 +249,11 @@ nav {
     display: flex;
     justify-content: center;
     line-height: 280%; }
-    nav .cart__icon text {
+    .mobile .cart__icon text {
       text-decoration: none; }
+
+.desktop {
+  display: none; }
 
 .announcement {
   width: 100%;
@@ -347,7 +350,8 @@ nav {
   background: #bdd7d6;
   height: max-content;
   font-family: "Righteous", cursive;
-  display: block; }
+  display: block;
+  text-align: center; }
   .product__category {
     margin: auto;
     color: #eff2dd;
@@ -425,7 +429,8 @@ nav {
   top: 150px;
   width: 100%;
   /* height: max-content; */
-  background: #bdd7d6; }
+  background: #bdd7d6;
+  display: block; }
   .items a {
     text-decoration: none; }
   .items__name, .items__price, .items__btn {
@@ -850,3 +855,130 @@ footer {
     footer .social img {
       height: 30px;
       width: 30px; }
+
+@media only screen and (min-width: 600px) {
+  header .mobile {
+    max-width: 1680px;
+    display: none; }
+    header .mobile .hamburger {
+      display: none; }
+      header .mobile .hamburger > div {
+        display: none; }
+    header .mobile .cart_icon {
+      display: none; }
+    header .mobile input {
+      display: none; }
+    header .mobile .brand {
+      margin: 0 auto 0 10vw; }
+    header .mobile .menu {
+      height: 100%;
+      position: relative;
+      top: 0;
+      z-index: 1;
+      opacity: 0;
+      transition: left 0.4s ease, opacity 0.4s ease;
+      padding: 0;
+      left: 0;
+      opacity: 1;
+      width: max-content;
+      /* margin: 0 0 0 auto; */
+      display: block;
+      background: transparent; }
+      header .mobile .menu ul {
+        margin: 25px 20px; }
+      header .mobile .menu--items {
+        margin: 0 15px;
+        display: inline-block; }
+      header .mobile .menu--social {
+        display: none; }
+  header .desktop {
+    display: flex; }
+    header .desktop__brand {
+      margin: 15px auto;
+      z-index: 1;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      header .desktop__brand a {
+        height: 45px;
+        width: 110px;
+        background: transparent;
+        color: #bdd7d6;
+        font: normal normal 900 30px "Righteous", cursive;
+        letter-spacing: -0.06em;
+        text-decoration: none; }
+      header .desktop__brand img {
+        margin-left: 50px;
+        height: 100%;
+        width: 100%; }
+    header .desktop__nav--left, header .desktop__nav--right {
+      display: flex;
+      list-style: none;
+      margin: auto; }
+      header .desktop__nav--left li, header .desktop__nav--right li {
+        margin: 20px 10px; }
+        header .desktop__nav--left li a, header .desktop__nav--right li a {
+          color: #eff2dd;
+          text-decoration: none;
+          font: normal normal 500 18px "Righteous", cursive;
+          letter-spacing: 0.1em;
+          opacity: 0.5;
+          transition: opacity 0.3s ease; }
+          header .desktop__nav--left li a:hover, header .desktop__nav--right li a:hover {
+            opacity: 1; } }
+
+.homePage .featured {
+  max-height: 70vh;
+  overflow: hidden; }
+  .homePage .featured__slide,
+  .homePage .featured a {
+    /* object-fit: cover; */ }
+    .homePage .featured__slide img,
+    .homePage .featured a img {
+      height: auto; }
+
+.items {
+  max-width: 1680px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 60% 40%;
+  align-items: center;
+  height: 80vh; }
+  .items__carousel {
+    justify-self: center;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .items__slider {
+    overflow-y: hidden; }
+  .items__info {
+    position: relative;
+    overflow: hidden;
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    /* width: max-content; */
+    grid-row: 1/2;
+    grid-column: 2/3; }
+  .items__name, .items__price, .items__description {
+    text-align: left; }
+  .items__name {
+    margin: 10px; }
+  .items__price {
+    padding: 0;
+    margin: 10px; }
+  .items__description {
+    margin: 10px;
+    padding: 0; }
+  .items__btn {
+    position: absolute;
+    bottom: 0px; }

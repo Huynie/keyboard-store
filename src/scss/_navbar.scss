@@ -2,13 +2,13 @@
 header {
   position: sticky;
   position: -webkit-sticky;
-  top: -1px;
-  width: 100vw;
+  top: 0px;
   margin: auto;
   background: $navColor;
   z-index: 5;
+  width: 100vw;
 }
-nav {
+.mobile {
   background: $navColor;
   display: flex;
   justify-content: space-around;
@@ -278,6 +278,9 @@ nav {
       text-decoration: none;
     }
   }
+}
+.desktop {
+  display: none;
 }
 .announcement {
   width: 100%;
