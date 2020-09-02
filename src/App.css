@@ -335,16 +335,19 @@ header {
   background: #bdd7d6;
   animation: loadIn 0.8s;
   text-align: center;
-  color: #eff2dd;
+  color: #516365;
   display: flex;
   height: 100%;
+  font: normal normal 500 16px "Righteous", cursive;
   /* padding: 40vh 0 0 0; */ }
   .about > div {
     width: 80%;
-    margin: 30% auto; }
+    margin: 10% auto; }
     .about > div p {
+      font: normal normal 400 16px "Roboto";
       text-align: left;
-      color: #ee6b61; }
+      color: #ee6b61;
+      margin: 20px auto; }
 
 .product {
   background: #bdd7d6;
@@ -894,6 +897,8 @@ footer {
   header .desktop {
     display: flex; }
     header .desktop__brand {
+      /* flex: 5;
+        order: 1; */
       margin: 15px auto;
       z-index: 1;
       background: transparent;
@@ -909,10 +914,12 @@ footer {
         letter-spacing: -0.06em;
         text-decoration: none; }
       header .desktop__brand img {
-        margin-left: 50px;
+        /* margin-left: 50px; */
         height: 100%;
         width: 100%; }
     header .desktop__nav--left, header .desktop__nav--right {
+      /* flex: 1;
+        order: 2; */
       display: flex;
       list-style: none;
       margin: auto; }
@@ -991,4 +998,6 @@ footer {
       padding: 20px;
       width: 100%;
       /* position: absolute;
-      bottom: 30px; */ } }
+      bottom: 30px; */ }
+  .about > div p {
+    max-width: 700px; } }

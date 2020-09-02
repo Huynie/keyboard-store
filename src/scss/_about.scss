@@ -2,16 +2,20 @@
   background: $background-color;
   animation: $loadIn;
   text-align: center;
-  color: $fontColor;
+  color: $priceColor;
   display: flex;
   height: 100%;
+  font: normal normal 500 16px $typeFace;
+
   /* padding: 40vh 0 0 0; */
   & > div {
     width: 80%;
-    margin: 30% auto;
+    margin: 10% auto;
     p {
+      font: normal normal 400 16px $typeFace2;
       text-align: left;
       color: $accentColor;
+      margin: 20px auto;
     }
   }
 }

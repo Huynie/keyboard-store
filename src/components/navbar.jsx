@@ -41,14 +41,18 @@ export default function NavBar() {
               {/* <a href="./#about" onClick={() => closeNav()}>
                 ABOUT
               </a> */}
-              <Link to="/about">ABOUT</Link>
+              <Link to="/about" onClick={() => closeNav()}>
+                ABOUT
+              </Link>
             </li>
             <li className="menu--items">
               {/* <a href="./#contact" onClick={() => closeNav()}>
                 CONTACT
               </a> */}
 
-              <Link to="/contact">CONTACT</Link>
+              <Link to="/contact" onClick={() => closeNav()}>
+                CONTACT
+              </Link>
             </li>
             <li className="menu--items">
               <Link to="/cart" onClick={() => closeNav()}>
@@ -82,10 +86,11 @@ export default function NavBar() {
             </Link>
           </li>
           <li className="menu--items">
-            <Link to="/Store" onClick={() => closeNav()}>
-              SHOP
-            </Link>
+            <Link to="/about">ABOUT</Link>
           </li>
+          {/* <li className="menu--items">
+            <Link to="/contact">CONTACT</Link>
+          </li> */}
         </ul>
         <div className="desktop__brand">
           <Link to="/">
@@ -94,17 +99,9 @@ export default function NavBar() {
         </div>
         <ul className="desktop__nav--right">
           <li className="menu--items">
-            {/* <a href="./#about" onClick={() => closeNav()}>
-                ABOUT
-              </a> */}
-            <Link to="/about">ABOUT</Link>
-          </li>
-          <li className="menu--items">
-            {/* <a href="./#contact" onClick={() => closeNav()}>
-                CONTACT
-              </a> */}
-
-            <Link to="/contact">CONTACT</Link>
+            <Link to="/Store" onClick={() => closeNav()}>
+              SHOP
+            </Link>
           </li>
           <li className="menu--items">
             <Link to="/cart" onClick={() => closeNav()}>

@@ -50,6 +50,8 @@
       display: flex;
 
       &__brand {
+        /* flex: 5;
+        order: 1; */
         margin: 15px auto;
         z-index: 1;
         background: transparent;
@@ -67,13 +69,15 @@
           text-decoration: none;
         }
         img {
-          margin-left: 50px;
+          /* margin-left: 50px; */
           height: 100%;
           width: 100%;
         }
       }
       &__nav--left,
       &__nav--right {
+        /* flex: 1;
+        order: 2; */
         display: flex;
         list-style: none;
         margin: auto;
@@ -177,6 +181,13 @@
       width: 100%;
       /* position: absolute;
       bottom: 30px; */
+    }
+  }
+  .about {
+    & > div {
+      p {
+        max-width: 700px;
+      }
     }
   }
 }
