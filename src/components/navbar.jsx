@@ -114,7 +114,7 @@ export default function NavBar() {
         </ul>
       </div>
       <div className="announcement">
-        <p>Due to COVID-19 shipping will be delayed click here to learn more</p>
+        <p>Due to COVID-19 shipping will be delayed</p>
       </div>
     </header>
   );

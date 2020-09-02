@@ -82,15 +82,17 @@ export default function Items() {
             </div>
           </div>
           <div className="items__info">
-            <h1 className="items__name">{itemPicked.name}</h1>
-            <h3 className="items__price">${itemPicked.price.toFixed(2)}</h3>
-            <p className="items__description">{itemPicked.description}</p>
-            <button
-              className="items__btn"
-              onClick={() => addToCart(itemPicked)}
-            >
-              ADD TO CART
-            </button>
+            <div>
+              <h1 className="items__name">{itemPicked.name}</h1>
+              <h3 className="items__price">${itemPicked.price.toFixed(2)}</h3>
+              <p className="items__description">{itemPicked.description}</p>
+              <button
+                className="items__btn"
+                onClick={() => addToCart(itemPicked)}
+              >
+                ADD TO CART
+              </button>
+            </div>
           </div>
         </div>
       </>
