@@ -54,11 +54,11 @@ export default function NavBar() {
                 CONTACT
               </Link>
             </li>
-            <li className="menu--items">
+            {/* <li className="menu--items">
               <Link to="/cart" onClick={() => closeNav()}>
                 CART
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div className="menu--social">
             <img src={require("../images/FB White.png")} alt="" />
@@ -105,7 +105,7 @@ export default function NavBar() {
           </li>
           <li className="menu--items">
             <Link to="/cart" onClick={() => closeNav()}>
-              CART
+              CART ({totalItemsInCart})
             </Link>
           </li>
         </ul>

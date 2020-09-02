@@ -2,16 +2,10 @@ import React, { useContext } from "react";
 import { productContext } from "./product_list";
 
 export default function Checkout() {
-  const { cart, setCart, totalPrice } = useContext(productContext);
-  const shipping = totalPrice / 2;
-  const tax = totalPrice / 3;
-  const grandTotal = totalPrice + tax + shipping;
-  const purchased = () => {
-    document.querySelector(".checkout__title").innerHTML = "Thank you!";
-    setTimeout(() => {
-      setCart([]);
-    }, 1000);
-  };
+  const { cart, totalPrice, shipping, tax, grandTotal, purchased } = useContext(
+    productContext
+  );
+
   if (totalPrice > 0) {
     return (
       <div className="checkout">

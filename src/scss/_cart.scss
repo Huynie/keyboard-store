@@ -210,4 +210,10 @@
       background: $accentColor;
     }
   }
+  &__desktop {
+    display: none;
+  }
+  .checkout {
+    display: none;
+  }
 }

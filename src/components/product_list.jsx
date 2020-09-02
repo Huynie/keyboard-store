@@ -181,13 +181,25 @@ export const ProductList = (props) => {
         <div className="cart__checkout">
           <hr />
           <button onClick={() => closeSideCart()}>
-            <Link to="/checkout">CHECKOUT - ${totalPrice.toFixed(2)}</Link>
+            <Link to="/checkout">CHECKOUT - ${totalPrice}</Link>
           </button>
         </div>
       );
     } else {
       return <div className="cart__checkout--empty">Cart Empty</div>;
     }
+  };
+  const shipping = totalPrice / 2;
+  const tax = totalPrice / 3;
+  const grandTotal = totalPrice + tax + shipping;
+  const purchased = () => {
+    const checkOutTitle = document.querySelectorAll("h1.checkout__title");
+    checkOutTitle.forEach((title) => {
+      title.innerHTML = "Thank you!";
+    });
+    setTimeout(() => {
+      setCart([]);
+    }, 1000);
   };
   return (
     <productContext.Provider
@@ -206,6 +218,10 @@ export const ProductList = (props) => {
         setCategory,
         itemPicked,
         setItemPicked,
+        shipping,
+        tax,
+        grandTotal,
+        purchased,
         /* getPickedItem, */
       }}
     >

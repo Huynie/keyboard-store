@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { productContext } from "./product_list";
+import Checkout from "./checkout";
 
 function Cart() {
   const {
@@ -9,6 +10,11 @@ function Cart() {
     quantityDecrease,
     removeFromCart,
     checkOutBtn,
+    /*     totalPrice,
+    shipping,
+    tax,
+    grandTotal,
+    purchased, */
   } = useContext(productContext);
 
   return (
@@ -61,6 +67,34 @@ function Cart() {
           })}
         </div>
         {checkOutBtn()}
+        {/* DESKTOP CART */}
+        {/* <div className="cart__desktop">
+          <h2 className="checkout__title">Order Summary</h2>
+
+          <ul className="checkout__cost">
+            <li className="checkout__cost--total">
+              <div>Total</div>
+              <p>${totalPrice.toFixed(2)}</p>
+            </li>
+            <li className="checkout__cost--shipping">
+              <div>Tax</div>
+              <p>${tax.toFixed(2)}</p>
+            </li>
+            <li className="checkout__cost--tax">
+              <div>Shipping</div>
+              <p>${shipping.toFixed(2)}</p>
+            </li>
+            <hr />
+            <li className="checkout__cost--grandTotal">
+              <div>Grand Total</div>
+              <p>${grandTotal.toFixed(2)}</p>
+            </li>
+            <button className="checkout__order" onClick={() => purchased()}>
+              Place Order
+            </button>
+          </ul>
+        </div> */}
+        <Checkout />
       </div>
     </>
   );
