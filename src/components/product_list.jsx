@@ -12,12 +12,10 @@ export const ProductList = (props) => {
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
       category: "full kit",
       image: [
-        require("../images/k1.png"),
-        require("../images/k5.png"),
-        require("../images/k6.png"),
-        require("../images/k1.png"),
-        require("../images/k5.png"),
-        require("../images/k6.png"),
+        require("../images/k1_1x.png"),
+        require("../images/k1-2_1x.png"),
+        require("../images/k1-3_1x.png"),
+        require("../images/k1-4_1x.png"),
       ],
     },
     {
@@ -25,7 +23,12 @@ export const ProductList = (props) => {
       price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [require("../images/k2.png")],
+      image: [
+        require("../images/k2_1x.png"),
+        require("../images/k2-2_1x.png"),
+        require("../images/k2-3_1x.png"),
+        require("../images/k1-4_1x.png"),
+      ],
       category: "full kit",
     },
     {
@@ -33,7 +36,12 @@ export const ProductList = (props) => {
       price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [require("../images/k3.png")],
+      image: [
+        require("../images/k3_1x.png"),
+        require("../images/k3-2_1x.png"),
+        require("../images/k2-3_1x.png"),
+        require("../images/k3-4_1x.png"),
+      ],
       category: "full kit",
     },
     {
@@ -41,7 +49,12 @@ export const ProductList = (props) => {
       price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [require("../images/k4.png")],
+      image: [
+        require("../images/k4_1x.png"),
+        require("../images/k4-2_1x.png"),
+        require("../images/k2-3_1x.png"),
+        require("../images/k4-4_1x.png"),
+      ],
       category: "full kit",
     },
     {
@@ -49,7 +62,12 @@ export const ProductList = (props) => {
       price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [require("../images/k10.png")],
+      image: [
+        require("../images/k7_1x.png"),
+        require("../images/k7-2_1x.png"),
+        require("../images/k2-3_1x.png"),
+        require("../images/k3-4_1x.png"),
+      ],
       category: "full kit",
     },
     {
@@ -57,7 +75,12 @@ export const ProductList = (props) => {
       price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [require("../images/k11.png")],
+      image: [
+        require("../images/k8_1x.png"),
+        require("../images/k8-2_1x.png"),
+        require("../images/k8-3_1x.png"),
+        require("../images/k8-4_1x.png"),
+      ],
       category: "full kit",
     },
     {
@@ -65,7 +88,12 @@ export const ProductList = (props) => {
       price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [require("../images/k12.png")],
+      image: [
+        require("../images/k9_1x.png"),
+        require("../images/k9-2_1x.png"),
+        require("../images/k9-3_1x.png"),
+        require("../images/k9-4_1x.png"),
+      ],
       category: "full kit",
       featured: true,
     },
@@ -74,36 +102,57 @@ export const ProductList = (props) => {
       price: 70,
       description:
         "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [require("../images/k13.png")],
+      image: [
+        require("../images/k10_1x.png"),
+        require("../images/k10-2_1x.png"),
+        require("../images/k10-3_1x.png"),
+        require("../images/k10-4_1x.png"),
+      ],
       featured: true,
       category: "full kit",
     },
     {
-      name: "Lapis Lazuli",
+      name: "Soy",
       price: 20,
       description: "PBT Double shot keycaps",
-      image: [require("../images/k14.png")],
+      image: [
+        require("../images/k11_1x.png"),
+        require("../images/k11-2_1x.png"),
+        require("../images/k11-3_1x.png"),
+      ],
       category: "keycaps",
     },
     {
-      name: "Jade",
+      name: "Soot",
       price: 20,
       description: "PBT Double shot keycaps",
-      image: [require("../images/k17.png")],
+      image: [
+        require("../images/k12_1x.png"),
+        require("../images/k12-2_1x.png"),
+        require("../images/k12-3_1x.png"),
+      ],
       category: "keycaps",
     },
     {
-      name: "Bronze Knee-Cap",
+      name: "Chili",
       price: 20,
       description: "PBT Double shot keycaps",
-      image: [require("../images/k16.png")],
+      image: [
+        require("../images/k13_1x.png"),
+        require("../images/k13-2_1x.png"),
+        require("../images/k13-3_1x.png"),
+      ],
       category: "keycaps",
     },
     {
-      name: "Bubble Gum",
+      name: "Bellpepper",
       price: 20,
       description: "PBT Double shot keycaps",
-      image: [require("../images/k15.png")],
+      image: [
+        require("../images/k14_1x.png"),
+        require("../images/k14-2_1x.png"),
+        require("../images/k14-3_1x.png"),
+      ],
       category: "keycaps",
     },
   ]);

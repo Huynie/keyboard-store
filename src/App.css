@@ -541,8 +541,7 @@ header {
   min-height: 65vh;
   height: 100%;
   width: 100%;
-  z-index: 106;
-  display: flexbox; }
+  z-index: 106; }
   .cart h1 {
     display: block;
     width: max-content;

@@ -61,7 +61,7 @@ export default function Home() {
               >
                 {" "}
                 <div className="featured__name">{featured.name}</div>
-                <img src={featured.image} alt={featured.name} />
+                <img src={featured.image[0]} alt={featured.name} />
               </Link>
             );
           })}
