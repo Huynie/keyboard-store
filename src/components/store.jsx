@@ -6,9 +6,10 @@ export default function Store() {
   const { getProductsInCategory, setCategory, setItemPicked } = useContext(
     productContext
   );
-/* const storeLocal = (product)=>{
-  localStorage.setItem(`${product.name}`, JSON.stringify(product))
-} */
+const setStore = (product)=>{
+  setItemPicked(product)
+  localStorage.setItem("picked-item", JSON.stringify(product))
+}
 
   return (
     <>
@@ -31,8 +32,8 @@ export default function Store() {
               <div
                 className="product__item"
                 key={idx}
-                /* onClick={()=> storeLocal(product)} */
-                onClick={()=> setItemPicked(product)}
+                onClick={()=> setStore(product)}
+                /* onClick={()=> setItemPicked(product)} */
               >
                 <Link
                   to={{

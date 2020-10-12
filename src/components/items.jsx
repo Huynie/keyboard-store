@@ -1,29 +1,33 @@
 import React, { useContext, useEffect } from "react";
+/* import { useCallback } from "react"; */
 import { productContext } from "./product_list";
 /* import { Redirect } from "react-router-dom"; */
 
 export default function Items() {
-  const { /* addToCart, */ itemPicked, setItemPicked } = useContext(productContext);
+  const { addToCart, itemPicked, setItemPicked } = useContext(productContext);
 
   console.log(itemPicked);
 
 
- useEffect(()=>{
-  const data = localStorage.getItem("this-item");
-/*   const newItem = itemPicked.name; */
-  if(data && data !== ""){
+ React.useEffect(()=>{
+  const data = localStorage.getItem("picked-item");
+  if(data){
     setItemPicked(JSON.parse(data));
-  }else{
-    localStorage.setItem("this-item", JSON.stringify(itemPicked));
   }
-  },[]);
+ },[setItemPicked])
 
-/*   useEffect(()=>{
-    localStorage.setItem("this-item", JSON.stringify(itemPicked));
+/*     useEffect(()=>{
+      const data = localStorage.getItem("this-item");
+      
+      if(itemPicked !== ""){
+        localStorage.setItem("this-item", JSON.stringify(itemPicked));
+      }else{
+        return;
+      }
   }); */
 
 
-  /* const carousel = () => {
+  const carousel = () => {
     if (itemPicked > "") {
       const dotsNav = document.querySelector(".items__dotsContainer");
       const dot = Array.from(dotsNav.children);
@@ -49,42 +53,29 @@ export default function Items() {
     } else {
       return;
     }
-  }; */
+  };
 
 
 
-  /* useEffect(() => {
+  useEffect(() => {
     carousel();
-  }); */
+  });
 
-  /* const dotClicked = (dotIdx) => {
+  const dotClicked = (dotIdx) => {
     const slideView = document.querySelector(".items__slider");
     const slides = Array.from(slideView.children);
     slides[dotIdx].scrollIntoView({ block: "center", inline: "center" });
-  }; */
+  };
 /* const local = localStorage.getItem("this-item");
 console.log(local); */
 
-  return (
+const data = JSON.parse(localStorage.getItem("picked-item"));
+/*   return (
     <>
       <div>
         {itemPicked.name}
-        {/* {local.image} */}
-        {/* {itemPicked.image.forEach((image,idx) =>{
-          return(
-            <img
-              className="items__images"
-              src={image}
-              alt={idx}
-              key={idx}
-              id={idx}
-              width="100"
-              height="100"
-            />
-          )
-        })} */}
-      {/* {
-        itemPicked.image.map((image, idx) => {
+      {
+        data.image.map((image, idx) => {
           return (
             <img
               className="items__images"
@@ -97,18 +88,18 @@ console.log(local); */
             />
           );
         })
-      } */}
+      }
       </div>
     </>
-  );
+  ); */
 
- /*  return (
+  return (
     <>
       <div className="items">
         <div className="items__carousel">
           <div className="items__slider">
             {
-              itemPicked.image.map((image, idx) => {
+              data.image.map((image, idx) => {
                 return (
                   <img
                     className="items__images"
@@ -124,7 +115,7 @@ console.log(local); */
             }
           </div>
           <div className="items__dotsContainer">
-            {itemPicked.image.map((image, idx) => {
+            {data.image.map((image, idx) => {
               return (
                 <input
                   className="items__dotsContainer--dots"
@@ -140,12 +131,12 @@ console.log(local); */
         </div>
         <div className="items__info">
           <div>
-            <h1 className="items__name">{itemPicked.name}</h1>
-            <h3 className="items__price">${itemPicked.price.toFixed(2)}</h3>
-            <p className="items__description">{itemPicked.description}</p>
+            <h1 className="items__name">{data.name}</h1>
+            <h3 className="items__price">${data.price.toFixed(2)}</h3>
+            <p className="items__description">{data.description}</p>
             <button
               className="items__btn"
-              onClick={() => addToCart(itemPicked)}
+              onClick={() => addToCart(data)}
             >
               ADD TO CART
             </button>
@@ -153,7 +144,7 @@ console.log(local); */
         </div>
       </div>
     </>
-  ); */
+  );
 
   /* if (itemPicked.length !== 0) {
     return (
