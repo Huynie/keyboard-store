@@ -67,7 +67,7 @@ const local = JSON.parse(localStorage.getItem("picked-item"));
         <div className="items__carousel">
           <div className="items__slider">
             {
-              data.image.map((image, idx) => {
+              local.image.map((image, idx) => {
                 return (
                   <img
                     className="items__images"
