@@ -1,16 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import { productContext } from "./product_list";
-import { Redirect } from "react-router-dom";
+/* import { Redirect } from "react-router-dom"; */
 
 export default function Items() {
-  const { addToCart, itemPicked, setItemPicked } = useContext(productContext);
+  const { /* addToCart, */ itemPicked, setItemPicked } = useContext(productContext);
 
   console.log(itemPicked);
 
 
  useEffect(()=>{
   const data = localStorage.getItem("this-item");
-  const newItem = itemPicked.name;
+/*   const newItem = itemPicked.name; */
   if(data && data !== ""){
     setItemPicked(JSON.parse(data));
   }else{
