@@ -1,13 +1,8 @@
 import React, { useContext, useEffect } from "react";
-/* import { useCallback } from "react"; */
 import { productContext } from "./product_list";
-/* import { Redirect } from "react-router-dom"; */
 
 export default function Items() {
   const { addToCart, itemPicked, setItemPicked } = useContext(productContext);
-
-  console.log(itemPicked);
-
 
  React.useEffect(()=>{
   const data = localStorage.getItem("picked-item");
@@ -25,7 +20,6 @@ export default function Items() {
         return;
       }
   }); */
-
 
   const carousel = () => {
     if (itemPicked > "") {
@@ -55,8 +49,6 @@ export default function Items() {
     }
   };
 
-
-
   useEffect(() => {
     carousel();
   });
@@ -66,32 +58,8 @@ export default function Items() {
     const slides = Array.from(slideView.children);
     slides[dotIdx].scrollIntoView({ block: "center", inline: "center" });
   };
-/* const local = localStorage.getItem("this-item");
-console.log(local); */
 
-const data = JSON.parse(localStorage.getItem("picked-item"));
-/*   return (
-    <>
-      <div>
-        {itemPicked.name}
-      {
-        data.image.map((image, idx) => {
-          return (
-            <img
-              className="items__images"
-              src={image}
-              alt={idx}
-              key={idx}
-              id={idx}
-              width="100"
-              height="100"
-            />
-          );
-        })
-      }
-      </div>
-    </>
-  ); */
+const local = JSON.parse(localStorage.getItem("picked-item"));
 
   return (
     <>
@@ -115,7 +83,7 @@ const data = JSON.parse(localStorage.getItem("picked-item"));
             }
           </div>
           <div className="items__dotsContainer">
-            {data.image.map((image, idx) => {
+            {local.image.map((image, idx) => {
               return (
                 <input
                   className="items__dotsContainer--dots"
@@ -131,12 +99,12 @@ const data = JSON.parse(localStorage.getItem("picked-item"));
         </div>
         <div className="items__info">
           <div>
-            <h1 className="items__name">{data.name}</h1>
-            <h3 className="items__price">${data.price.toFixed(2)}</h3>
-            <p className="items__description">{data.description}</p>
+            <h1 className="items__name">{local.name}</h1>
+            <h3 className="items__price">${local.price.toFixed(2)}</h3>
+            <p className="items__description">{local.description}</p>
             <button
               className="items__btn"
-              onClick={() => addToCart(data)}
+              onClick={() => addToCart(local)}
             >
               ADD TO CART
             </button>
@@ -145,69 +113,4 @@ const data = JSON.parse(localStorage.getItem("picked-item"));
       </div>
     </>
   );
-
-  /* if (itemPicked.length !== 0) {
-    return (
-      <>
-        <div className="items">
-          <div className="items__carousel">
-            <div className="items__slider">
-              {
-                itemPicked.image.map((image, idx) => {
-                  return (
-                    <img
-                      className="items__images"
-                      src={image}
-                      alt={idx}
-                      key={idx}
-                      id={idx}
-                      width="100"
-                      height="100"
-                    />
-                  );
-                })
-              }
-            </div>
-            <div className="items__dotsContainer">
-              {itemPicked.image.map((image, idx) => {
-                return (
-                  <input
-                    className="items__dotsContainer--dots"
-                    type="button"
-                    key={idx}
-                    id={idx}
-                    value={image.index}
-                    onClick={() => dotClicked(idx)}
-                  ></input>
-                );
-              })}
-            </div>
-          </div>
-          <div className="items__info">
-            <div>
-              <h1 className="items__name">{itemPicked.name}</h1>
-              <h3 className="items__price">${itemPicked.price.toFixed(2)}</h3>
-              <p className="items__description">{itemPicked.description}</p>
-              <button
-                className="items__btn"
-                onClick={() => addToCart(itemPicked)}
-              >
-                ADD TO CART
-              </button>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Redirect to="/store" />{" "}
-        <div>
-          {itemPicked}
-          {console.log(itemPicked)}
-        </div>
-      </>
-    );
-  } */
 }
