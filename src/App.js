@@ -25,7 +25,7 @@ export default function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={about} />
-            <Route path="/items" render={(props) => <Items {...props} />} />
+            <Route path="/items" component={Items} /* render={(props) => <Items {...props} />} */ />
             <Route
               path="/checkout"
               render={(props) => <Checkout {...props} />}

@@ -4,7 +4,8 @@ import { productContext } from "./product_list";
 export default function Items() {
   const { addToCart, itemPicked, setItemPicked } = useContext(productContext);
 
- React.useEffect(()=>{
+
+ useEffect(()=>{
   const data = localStorage.getItem("picked-item");
   if(data){
     setItemPicked(JSON.parse(data));
@@ -58,9 +59,14 @@ export default function Items() {
     const slides = Array.from(slideView.children);
     slides[dotIdx].scrollIntoView({ block: "center", inline: "center" });
   };
+  console.log(itemPicked);
 
-const local = JSON.parse(localStorage.getItem("picked-item"));
-
+let local;
+if(itemPicked > ""){
+  local = itemPicked
+}else{
+  local = JSON.parse(localStorage.getItem("picked-item"));
+}
   return (
     <>
       <div className="items">

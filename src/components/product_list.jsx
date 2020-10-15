@@ -159,7 +159,7 @@ export const ProductList = (props) => {
   const [category, setCategory] = useState("full kit");
 
   //when clicking on a product from the store to view individually
-  const [itemPicked, setItemPicked] = React.useState({});
+  const [itemPicked, setItemPicked] = useState([]);
 
   const getProductsInCategory = () => {
     return products.filter((product) => product.category === category);

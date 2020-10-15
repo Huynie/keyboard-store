@@ -37,7 +37,8 @@ const setStore = (product)=>{
               >
                 <Link
                   to={{
-                    pathname: `/items/${product.name}`,
+                    /* pathname: `/items/${product.name}`, */
+                    pathname: `/items`,
                   }}
                 >
                   <div className="product__imgContainer">
