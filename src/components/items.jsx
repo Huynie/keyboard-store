@@ -9,18 +9,19 @@ export default function Items() {
   const data = localStorage.getItem("picked-item");
   if(data){
     setItemPicked(JSON.parse(data));
+    console.log(itemPicked)
   }
- },[setItemPicked])
+ },[]);
 
-/*     useEffect(()=>{
-      const data = localStorage.getItem("this-item");
+  //   useEffect(()=>{
+  //     const data = localStorage.getItem("this-item");
       
-      if(itemPicked !== ""){
-        localStorage.setItem("this-item", JSON.stringify(itemPicked));
-      }else{
-        return;
-      }
-  }); */
+  //     if(itemPicked !== ""){
+  //       localStorage.setItem("this-item", JSON.stringify(itemPicked));
+  //     }else{
+  //       return;
+  //     }
+  // });
 
   const carousel = () => {
     if (itemPicked > "") {

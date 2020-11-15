@@ -161,6 +161,12 @@ export const ProductList = (props) => {
   //when clicking on a product from the store to view individually
   const [itemPicked, setItemPicked] = useState([]);
 
+  //set selected item in local storage and set state
+  const setItemLocal = (product)=>{
+    setItemPicked(product);
+    localStorage.setItem("picked-item", JSON.stringify(product));
+  }
+
   const getProductsInCategory = () => {
     return products.filter((product) => product.category === category);
   };
@@ -271,6 +277,7 @@ export const ProductList = (props) => {
         tax,
         grandTotal,
         purchased,
+        setItemLocal,
         /* getPickedItem, */
       }}
     >
