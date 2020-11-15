@@ -557,10 +557,6 @@ header {
     border: 0;
     background: #ee6b61; }
   .cart__list {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start; */
     overflow-x: hidden;
     overflow-y: scroll;
     width: max-content;
@@ -645,7 +641,11 @@ header {
       height: inherit;
       text-align: center;
       color: inherit;
-      outline: none; }
+      outline: none;
+      /* Chrome, Safari, Edge, Opera */ }
+      .cart__quantity--count::-webkit-outer-spin-button, .cart__quantity--count::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0; }
     .cart__quantity--increment, .cart__quantity--decrement {
       width: 20px;
       height: 30px;
