@@ -3,7 +3,7 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 
 export default function Store() {
-  const { getProductsInCategory, setCategory, setItemLocal, } = useContext(
+  const { getProductsInCategory, setCategory, setToLocal, } = useContext(
     productContext
   );
   
@@ -19,7 +19,7 @@ export default function Store() {
             name="category"
             id="category"
           >
-            <option value="full kit" selected='true'>full kit</option>
+            <option value="full kit" selected={true}>full kit</option>
             <option value="keycaps">keycaps</option>
           </select>
         </div>
@@ -29,8 +29,7 @@ export default function Store() {
               <div
                 className="product__item"
                 key={idx}
-                onClick={()=> setItemLocal(product)}
-                /* onClick={()=> setItemPicked(product)} */
+                onClick={()=> setToLocal('picked-item',product)}
               >
                 <Link
                   to={{

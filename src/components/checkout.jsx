@@ -16,7 +16,7 @@ export default function Checkout() {
             <ul className="checkout__itemsList" key={idx}>
               <li key={idx}>
                 <div className="checkout__itemsList--name">
-                  <img src={item.image} alt="" />
+                  <img src={item.image[0]} alt={item.name} />
                   {item.name}
                 </div>
                 <div className="checkout__itemsList--quantity">

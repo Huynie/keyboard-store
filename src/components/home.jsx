@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Contact from "./contact"; */
 
 export default function Home() {
-  const { products, setItemLocal } = useContext(productContext);
+  const { products, setToLocal } = useContext(productContext);
   const carousel = () => {
     if (products) {
       const dotsNav = document.querySelector(".featured__dotsContainer");
@@ -54,7 +54,7 @@ export default function Home() {
                 className="featured__slide"
                 key={idx}
                 id={idx}
-                onClick={() => setItemLocal(featured)}
+                onClick={() => setToLocal('picked-item',featured)}
                 to={{
                   pathname: `/items/${featured.name}`,
                 }}

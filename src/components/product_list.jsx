@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext} from "react";
 import { Link } from "react-router-dom";
 
 export const productContext = createContext();
@@ -158,18 +158,23 @@ export const ProductList = (props) => {
   ]);
   const [category, setCategory] = useState("full kit");
 
-  //when clicking on a product from the store to view individually
-  const [itemPicked, setItemPicked] = useState([]);
-
   //set selected item in local storage and set state
-  const setItemLocal = (product)=>{
-    setItemPicked(product);
-    localStorage.setItem("picked-item", JSON.stringify(product));
+  const setToLocal = (localName, item) => {
+    console.log('localName '+ localName,item)
+    localStorage.setItem(localName, JSON.stringify(item));
   }
-
+  // grab from local storage
+  let gotFromLocal;
+  const getFromLocal = (item) => {
+    gotFromLocal = JSON.parse(localStorage.getItem(item));
+    console.log(this);
+  }
+  
   const getProductsInCategory = () => {
     return products.filter((product) => product.category === category);
   };
+
+  //CART
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
@@ -185,6 +190,10 @@ export const ProductList = (props) => {
       newCart.push(itemInCart);
     }
     setCart(newCart);
+    //SET CART IN LOCALSTORAGE
+    setToLocal('cart',newCart);
+    setCart(JSON.parse(localStorage.getItem('cart')));
+
     // adds entire individual product everytime button clicked
     /* setCart([...cart, { ...product }]);*/
 
@@ -220,13 +229,16 @@ export const ProductList = (props) => {
     setCart(newCart);
   };
   const removeFromCart = (productToRemove) => {
-    setCart(cart.filter((product) => product !== productToRemove));
+    const newCart = cart.filter((product) => product !== productToRemove);
+    setCart(newCart);
+    localStorage.setItem('cart', JSON.stringify(newCart));
   };
   //TOTAL PRICE BUTTON
   const totalPrice = cart.reduce(
     (total, { price, quantity }) => total + price * quantity,
     0
   );
+  //CHECKOUT
   const checkOutBtn = () => {
     const closeSideCart = () => {
       document.querySelector(".toggle__cart").checked = false;
@@ -254,6 +266,7 @@ export const ProductList = (props) => {
     });
     setTimeout(() => {
       setCart([]);
+      localStorage.setItem('cart', JSON.stringify([]));
     }, 1000);
   };
   return (
@@ -271,14 +284,13 @@ export const ProductList = (props) => {
         totalPrice,
         getProductsInCategory,
         setCategory,
-        itemPicked,
-        setItemPicked,
         shipping,
         tax,
         grandTotal,
         purchased,
-        setItemLocal,
-        /* getPickedItem, */
+        setToLocal,
+        getFromLocal,
+        gotFromLocal
       }}
     >
       {props.children}

@@ -2,29 +2,15 @@ import React, { useContext, useEffect } from "react";
 import { productContext } from "./product_list";
 
 export default function Items() {
-  const { addToCart, itemPicked, setItemPicked } = useContext(productContext);
+  const { addToCart, /* getFromLocal, gotFromLocal */} = useContext(productContext);
 
+  const selectedItem = JSON.parse(localStorage.getItem('picked-item'));
+  /* getFromLocal('picked-item');
+  console.log(gotFromLocal); */
 
- useEffect(()=>{
-  const data = localStorage.getItem("picked-item");
-  if(data){
-    setItemPicked(JSON.parse(data));
-    console.log(itemPicked)
-  }
- },[]);
-
-  //   useEffect(()=>{
-  //     const data = localStorage.getItem("this-item");
-      
-  //     if(itemPicked !== ""){
-  //       localStorage.setItem("this-item", JSON.stringify(itemPicked));
-  //     }else{
-  //       return;
-  //     }
-  // });
 
   const carousel = () => {
-    if (itemPicked > "") {
+    if (selectedItem !== "") {
       const dotsNav = document.querySelector(".items__dotsContainer");
       const dot = Array.from(dotsNav.children);
 
@@ -60,21 +46,14 @@ export default function Items() {
     const slides = Array.from(slideView.children);
     slides[dotIdx].scrollIntoView({ block: "center", inline: "center" });
   };
-  console.log(itemPicked);
 
-let local;
-if(itemPicked > ""){
-  local = itemPicked
-}else{
-  local = JSON.parse(localStorage.getItem("picked-item"));
-}
   return (
     <>
       <div className="items">
         <div className="items__carousel">
           <div className="items__slider">
             {
-              local.image.map((image, idx) => {
+              selectedItem.image.map((image, idx) => {
                 return (
                   <img
                     className="items__images"
@@ -90,7 +69,8 @@ if(itemPicked > ""){
             }
           </div>
           <div className="items__dotsContainer">
-            {local.image.map((image, idx) => {
+            {/* FOR EVERY IMAGE CREATE A DOT */}
+            {selectedItem.image.map((image, idx) => {
               return (
                 <input
                   className="items__dotsContainer--dots"
@@ -106,12 +86,12 @@ if(itemPicked > ""){
         </div>
         <div className="items__info">
           <div>
-            <h1 className="items__name">{local.name}</h1>
-            <h3 className="items__price">${local.price.toFixed(2)}</h3>
-            <p className="items__description">{local.description}</p>
+            <h1 className="items__name">{selectedItem.name}</h1>
+            <h3 className="items__price">${selectedItem.price.toFixed(2)}</h3>
+            <p className="items__description">{selectedItem.description}</p>
             <button
               className="items__btn"
-              onClick={() => addToCart(local)}
+              onClick={() => addToCart(selectedItem)}
             >
               ADD TO CART
             </button>

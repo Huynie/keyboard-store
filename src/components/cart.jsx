@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { productContext } from "./product_list";
 import Checkout from "./checkout";
 
@@ -10,7 +10,12 @@ function Cart() {
     quantityDecrease,
     removeFromCart,
     checkOutBtn,
+    setCart,
   } = useContext(productContext);
+
+  useEffect(()=>{
+    setCart(JSON.parse(localStorage.getItem('cart')));
+  }, [setCart]);
 
   return (
     <>
