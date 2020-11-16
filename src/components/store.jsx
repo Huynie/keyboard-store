@@ -3,7 +3,7 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 
 export default function Store() {
-  const { getProductsInCategory,category, setCategory, setToLocal, } = useContext(
+  const { getProductsInCategory, setCategory, setToLocal, } = useContext(
     productContext
   );
   
