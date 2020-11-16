@@ -160,14 +160,12 @@ export const ProductList = (props) => {
 
   //set selected item in local storage and set state
   const setToLocal = (localName, item) => {
-    console.log('localName '+ localName,item)
     localStorage.setItem(localName, JSON.stringify(item));
   }
   // grab from local storage
   let gotFromLocal;
   const getFromLocal = (item) => {
     gotFromLocal = JSON.parse(localStorage.getItem(item));
-    console.log(this);
   }
   
   const getProductsInCategory = () => {

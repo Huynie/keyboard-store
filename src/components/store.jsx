@@ -3,7 +3,7 @@ import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 
 export default function Store() {
-  const { getProductsInCategory, setCategory, setToLocal, } = useContext(
+  const { getProductsInCategory,category, setCategory, setToLocal, } = useContext(
     productContext
   );
   
@@ -18,8 +18,9 @@ export default function Store() {
             onChange={(e) => setCategory(e.target.value)}
             name="category"
             id="category"
+            defaultValue="full kit"
           >
-            <option value="full kit" selected={true}>full kit</option>
+            <option value="full kit">full kit</option>
             <option value="keycaps">keycaps</option>
           </select>
         </div>
