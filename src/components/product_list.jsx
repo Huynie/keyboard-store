@@ -1,9 +1,10 @@
-import React, { useState, createContext} from "react";
+import React, { useState, createContext, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 export const productContext = createContext();
 
 export const ProductList = (props) => {
+  
   const [products] = useState([
     {
       name: "Ceramik White 60",
@@ -163,9 +164,8 @@ export const ProductList = (props) => {
     localStorage.setItem(localName, JSON.stringify(item));
   }
   // grab from local storage
-  let gotFromLocal;
   const getFromLocal = (item) => {
-    gotFromLocal = JSON.parse(localStorage.getItem(item));
+   return JSON.parse(localStorage.getItem(item));
   }
   
   const getProductsInCategory = () => {
@@ -174,7 +174,17 @@ export const ProductList = (props) => {
 
   //CART
   const [cart, setCart] = useState([]);
+  //PULL CART FROM LOCAL STORAGE THEN SET IN STATE ON MOUNT
+  useEffect(()=>{
+    setCart(getFromLocal('cart'));
+  }, []);
 
+  //SET CART IN LOCAL STORAGE EVERYTIME IT CHANGES
+  useEffect(()=>{
+    setToLocal('cart', cart);
+    console.log(category);
+  }, [cart,category]);
+  
   const addToCart = (product) => {
     let newCart = [...cart];
     let itemInCart = newCart.find((item) => product.name === item.name);
@@ -188,9 +198,6 @@ export const ProductList = (props) => {
       newCart.push(itemInCart);
     }
     setCart(newCart);
-    //SET CART IN LOCALSTORAGE
-    setToLocal('cart',newCart);
-    setCart(JSON.parse(localStorage.getItem('cart')));
 
     // adds entire individual product everytime button clicked
     /* setCart([...cart, { ...product }]);*/
@@ -229,7 +236,6 @@ export const ProductList = (props) => {
   const removeFromCart = (productToRemove) => {
     const newCart = cart.filter((product) => product !== productToRemove);
     setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
   };
   //TOTAL PRICE BUTTON
   const totalPrice = cart.reduce(
@@ -237,15 +243,16 @@ export const ProductList = (props) => {
     0
   );
   //CHECKOUT
+  const closeNav = () => {
+    document.querySelector(".toggle").checked = false;
+    document.querySelector(".toggle__cart").checked = false;
+  };
   const checkOutBtn = () => {
-    const closeSideCart = () => {
-      document.querySelector(".toggle__cart").checked = false;
-    };
     if (totalPrice > 0) {
       return (
         <div className="cart__checkout">
           <hr />
-          <button onClick={() => closeSideCart()}>
+          <button onClick={() => closeNav()}>
             <Link to="/checkout">CHECKOUT - ${totalPrice}</Link>
           </button>
         </div>
@@ -264,8 +271,10 @@ export const ProductList = (props) => {
     });
     setTimeout(() => {
       setCart([]);
-      localStorage.setItem('cart', JSON.stringify([]));
     }, 1000);
+    return(
+      <Link to="/cart"></Link>
+    );
   };
   return (
     <productContext.Provider
@@ -281,6 +290,7 @@ export const ProductList = (props) => {
         checkOutBtn,
         totalPrice,
         getProductsInCategory,
+        category,
         setCategory,
         shipping,
         tax,
@@ -288,7 +298,7 @@ export const ProductList = (props) => {
         purchased,
         setToLocal,
         getFromLocal,
-        gotFromLocal
+        closeNav
       }}
     >
       {props.children}

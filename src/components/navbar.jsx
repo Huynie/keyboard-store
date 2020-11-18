@@ -4,15 +4,10 @@ import { Link } from "react-router-dom";
 import Cart from "./cart";
 
 export default function NavBar() {
-  const { cart } = useContext(productContext);
+  const { cart, closeNav } = useContext(productContext);
 
   //CLICKING TRANSPARENCY CLOSES WHICH EVER MENU IS UP
-  const closeNav = () => {
-    const navMenu = document.querySelector(".toggle");
-    const cartMenu = document.querySelector(".toggle__cart");
-    navMenu.checked = false;
-    cartMenu.checked = false;
-  };
+
   //TOTAL ITEMS IN CART
   const totalItemsInCart = cart.reduce(
     (total, { quantity }) => total + quantity,

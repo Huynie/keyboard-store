@@ -2,7 +2,7 @@ import React, { useContext} from "react";
 import { productContext } from "./product_list";
 import Checkout from "./checkout";
 
-function Cart() {
+export default function Cart() {
   const {
     cart,
     setQuantity,
@@ -10,14 +10,7 @@ function Cart() {
     quantityDecrease,
     removeFromCart,
     checkOutBtn,
-    /* setCart, */
   } = useContext(productContext);
-
-  /* useEffect(()=>{
-    setCart(JSON.parse(localStorage.getItem('cart')));
-  }, [setCart]); */
-  
-  /* const savedCart = JSON.parse(localStorage.getItem('cart')); */
 
   return (
     <>
@@ -74,27 +67,3 @@ function Cart() {
     </>
   );
 }
-export default Cart;
-
-/*   const quantityIncrement = (product, amount) => {
-    quantity = isNaN(quantity) ? 0 : quantity;
-    const newCart = [...cart];
-    amount = newCart.find((item) => product.name === item.name);
-    if (
-      document.getElementById("increase").clicked === true &&
-      document.getElementById("decrease").value === "+"
-    ) {
-      console.log("increased", document.getElementById("increase").clicked);
-      amount.quantity++;
-      console.log("incremented");
-    } else {
-      if (document.getElementById("decrease").value === "-") {
-        console.log("decreased", document.getElementById("decrease").clicked);
-        amount.quantity--;
-        console.log("decremented");
-      }
-    }
-    setCart(newCart);
-
-    console.log("quantity is", amount.quantity);
-  }; */

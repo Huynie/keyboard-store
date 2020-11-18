@@ -2,12 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { productContext } from "./product_list";
 
 export default function Items() {
-  const { addToCart, /* getFromLocal, gotFromLocal */} = useContext(productContext);
+  const { addToCart, getFromLocal} = useContext(productContext);
 
-  const selectedItem = JSON.parse(localStorage.getItem('picked-item'));
-  /* getFromLocal('picked-item');
-  console.log(gotFromLocal); */
-
+  const selectedItem = getFromLocal('picked-item');
 
   const carousel = () => {
     if (selectedItem !== "") {
