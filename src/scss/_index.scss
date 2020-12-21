@@ -1,0 +1,81 @@
+//INDEX
+.homePage {
+  background: $background-color;
+  width: 100%;
+  height: 100%;
+  color: $priceColor;
+
+  hr {
+    height: 1px;
+    width: 95%;
+    margin: 30px auto;
+    border: 0;
+    background: $accentColor;
+  }
+  .featured {
+    animation: $loadIn;
+    display: flex;
+    text-decoration: none;
+    width: 100%;
+    height: auto;
+    overflow-x: scroll;
+    background: rgb(146, 130, 130);
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__slide,
+    a {
+      text-decoration: none;
+      scroll-snap-align: start;
+      min-width: 100%;
+      object-fit: contain;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      opacity: 0.8;
+    }
+    &__name {
+      color: $fontColor;
+      font: normal normal 500 25px $typeFace;
+      letter-spacing: 0.2em;
+      text-align: center;
+      margin: auto;
+      width: 28vh;
+      height: auto;
+      position: absolute;
+      z-index: 1;
+    }
+    &__dotsContainer {
+      width: max-content;
+      margin: 30px auto;
+      display: flex;
+
+      &--dots {
+        outline: none;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        margin: 0 10px;
+        border: none;
+        background: $navColor;
+      }
+      .currentDot {
+        background: $priceColor;
+      }
+    }
+  }
+}
