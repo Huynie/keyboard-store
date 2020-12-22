@@ -6,20 +6,16 @@ export const productContext = createContext();
 
 export const ProductList = (props) => {
   const [products, setProducts] = useState([]);
-  // Get Keyboards
+  // Get items from database
   useEffect(() => {
     const getKeyboards = async (req, res) => {
-      await axios.get('/api/items')
-        .then( res =>{
-          setProducts(res.data);
-        });
-      // try {
-      //   const keyboards = await axios.get('/api/items');
-      //   setProducts(keyboards);
-      // } catch (e) {
-      //   console.log('something is wrong on server side while getting data.');
-        // return res.status(500).json({ message: e.message });
-      // }
+      try {
+        const keyboards = await axios.get('/api/items');
+        setProducts(keyboards.data);
+      } catch (e) {
+        console.log('something went wrong while getting data.');
+        return res.status(500).json({ message: e.message });
+      }
     };
     getKeyboards();
   }, []);
