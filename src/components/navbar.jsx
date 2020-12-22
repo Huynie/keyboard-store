@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { productContext } from "./product_list";
 import { Link } from "react-router-dom";
 import Cart from "./cart";
+import logo from '../images/logo02.svg';
 
 export default function NavBar() {
   const { cart, closeNav } = useContext(productContext);
@@ -56,14 +57,14 @@ export default function NavBar() {
             </li> */}
           </ul>
           <div className="menu--social">
-            <img src={require("../images/FB White.png")} alt="" />
-            <img src={require("../images/IG White.png")} alt="" />
-            <img src={require("../images/TW White.png")} alt="" />
+            <img src={"/images/FB_White.png"} alt="" />
+            <img src={"/images/IG_White.png"} alt="" />
+            <img src={"/images/TW_White.png"} alt="" />
           </div>
         </div>
         <div className="brand">
           <Link to="/">
-            <img src={require("../images/logo02.svg")} alt="" />
+            <img src={logo} alt="" />
           </Link>
         </div>
         <input type="checkbox" className="toggle__cart" />
@@ -89,7 +90,7 @@ export default function NavBar() {
         </ul>
         <div className="desktop__brand">
           <Link to="/">
-            <img src={require("../images/logo02.svg")} alt="" />
+            <img src={logo} alt="" />
           </Link>
         </div>
         <ul className="desktop__nav--right">

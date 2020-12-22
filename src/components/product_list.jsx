@@ -5,168 +5,21 @@ import axios from 'axios';
 export const productContext = createContext();
 
 export const ProductList = (props) => {
-  const [products, setProducts] = useState([
-    {
-      name: "Ceramik White 60",
-      price: 80,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      category: "full kit",
-      image: [
-        require("../images/k1_1x.png"),
-        require("../images/k1-2_1x.png"),
-        require("../images/k1-3_1x.png"),
-        require("../images/k1-4_1x.png"),
-      ],
-    },
-    {
-      name: "Salmon Peach 60",
-      price: 70,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [
-        require("../images/k2_1x.png"),
-        require("../images/k2-2_1x.png"),
-        require("../images/k2-3_1x.png"),
-        require("../images/k1-4_1x.png"),
-      ],
-      category: "full kit",
-    },
-    {
-      name: "KIWI 60",
-      price: 70,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [
-        require("../images/k3_1x.png"),
-        require("../images/k3-2_1x.png"),
-        require("../images/k2-3_1x.png"),
-        require("../images/k3-4_1x.png"),
-      ],
-      category: "full kit",
-    },
-    {
-      name: "Sandstone 60",
-      price: 70,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [
-        require("../images/k4_1x.png"),
-        require("../images/k4-2_1x.png"),
-        require("../images/k2-3_1x.png"),
-        require("../images/k4-4_1x.png"),
-      ],
-      category: "full kit",
-    },
-    {
-      name: "Pomegranate 60",
-      price: 70,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [
-        require("../images/k7_1x.png"),
-        require("../images/k7-2_1x.png"),
-        require("../images/k2-3_1x.png"),
-        require("../images/k3-4_1x.png"),
-      ],
-      category: "full kit",
-    },
-    {
-      name: "Pastel 60",
-      price: 70,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [
-        require("../images/k8_1x.png"),
-        require("../images/k8-2_1x.png"),
-        require("../images/k8-3_1x.png"),
-        require("../images/k8-4_1x.png"),
-      ],
-      category: "full kit",
-    },
-    {
-      name: "Hubba Bubba Powder",
-      price: 70,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [
-        require("../images/k9_1x.png"),
-        require("../images/k9-2_1x.png"),
-        require("../images/k9-3_1x.png"),
-        require("../images/k9-4_1x.png"),
-      ],
-      category: "full kit",
-      featured: true,
-    },
-    {
-      name: "Teal Grape",
-      price: 70,
-      description:
-        "ansi 60% layout, pbt keycaps, hotswapable switches, full RGB LED, bluetooth 5.1, usb-C",
-      image: [
-        require("../images/k10_1x.png"),
-        require("../images/k10-2_1x.png"),
-        require("../images/k10-3_1x.png"),
-        require("../images/k10-4_1x.png"),
-      ],
-      featured: true,
-      category: "full kit",
-    },
-    {
-      name: "Soy",
-      price: 20,
-      description: "PBT Double shot keycaps",
-      image: [
-        require("../images/k11_1x.png"),
-        require("../images/k11-2_1x.png"),
-        require("../images/k11-3_1x.png"),
-      ],
-      category: "keycaps",
-    },
-    {
-      name: "Soot",
-      price: 20,
-      description: "PBT Double shot keycaps",
-      image: [
-        require("../images/k12_1x.png"),
-        require("../images/k12-2_1x.png"),
-        require("../images/k12-3_1x.png"),
-      ],
-      category: "keycaps",
-    },
-    {
-      name: "Chili",
-      price: 20,
-      description: "PBT Double shot keycaps",
-      image: [
-        require("../images/k13_1x.png"),
-        require("../images/k13-2_1x.png"),
-        require("../images/k13-3_1x.png"),
-      ],
-      category: "keycaps",
-    },
-    {
-      name: "Bellpepper",
-      price: 20,
-      description: "PBT Double shot keycaps",
-      image: [
-        require("../images/k14_1x.png"),
-        require("../images/k14-2_1x.png"),
-        require("../images/k14-3_1x.png"),
-      ],
-      category: "keycaps",
-    },
-  ]);
+  const [products, setProducts] = useState([]);
   // Get Keyboards
   useEffect(() => {
     const getKeyboards = async (req, res) => {
-      try {
-        const keyboards = await axios.get('api link');
-        setProducts(keyboards);
-      } catch (e) {
-        console.log('something is wrong on server side while getting data.');
-        return res.status(500).json({ message: e.message });
-      }
+      await axios.get('/api/items')
+        .then( res =>{
+          setProducts(res.data);
+        });
+      // try {
+      //   const keyboards = await axios.get('/api/items');
+      //   setProducts(keyboards);
+      // } catch (e) {
+      //   console.log('something is wrong on server side while getting data.');
+        // return res.status(500).json({ message: e.message });
+      // }
     };
     getKeyboards();
   }, []);
@@ -196,7 +49,6 @@ export const ProductList = (props) => {
   //SET CART IN LOCAL STORAGE EVERYTIME IT CHANGES
   useEffect(()=>{
     setToLocal('cart', cart);
-    console.log(category);
   }, [cart,category]);
   
   const addToCart = (product) => {

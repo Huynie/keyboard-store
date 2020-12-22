@@ -8,13 +8,13 @@ export default function Footer() {
         <p>Huy Chau 2020</p>
         <ul className="social">
           <li>
-            <img src={require("../images/FB White.png")} alt="" />
+            <img src={"/images/FB_White.png"} alt="" />
           </li>
           <li>
-            <img src={require("../images/IG White.png")} alt="" />
+            <img src={"/images/IG_White.png"} alt="" />
           </li>
           <li>
-            <img src={require("../images/TW White.png")} alt="" />
+            <img src={"/images/TW_White.png"} alt="" />
           </li>
         </ul>
       </footer>
