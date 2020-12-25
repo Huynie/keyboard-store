@@ -6,12 +6,12 @@ const cors = require("cors");
 const app = express();
 
 // Enable CORS
-app.use(cors({
-    origin: ['https://keybz.netlify.app/','http://localhost:3000/'],
-    methods: 'GET'
-}))
+// app.use(cors({
+//     origin: ['https://keybz.netlify.app/','http://localhost:3000/'],
+//     methods: 'GET'
+// }))
 
-// app.get('/api/items', cors());
+app.get('/api/items', cors());
 
 //Bodyparser middleware
 app.use(express.json());
