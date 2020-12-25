@@ -5,6 +5,14 @@ const config = require('config');
 const cors = require("cors");
 const app = express();
 
+// Enable CORS
+app.use(cors({
+    origin: ['https://keybz.netlify.app/','http://localhost:3000/'],
+    methods: 'GET'
+}))
+
+// app.get('/api/items', cors());
+
 //Bodyparser middleware
 app.use(express.json());
 // Middleware pointing to folder that server should serve at root route
@@ -22,9 +30,6 @@ mongoose
 //Use Routes
 app.use('/api/items', require('./routes/api/items'));
 // app.use('/api/users', require('./routes/api/users'));
-
-// Enable CORS for route
-app.get('/api/items', cors());
 
 // Serve Static assets if in production
 if (process.env.NODE_ENV === 'production') {
