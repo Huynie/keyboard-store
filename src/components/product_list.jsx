@@ -10,12 +10,11 @@ export const ProductList = (props) => {
   useEffect(() => {
     const getKeyboards = async (req, res) => {
       try {
-        const keyboards = await axios.get('http://keybz.herokuapp.com/api/items');
+        const keyboards = await axios.get('https://keybz.herokuapp.com/api/items');
         setProducts(keyboards.data);
-        console.log(keyboards)
       } catch (e) {
         console.log('something went wrong while getting data.');
-        // return res.status(500).json({ message: e.message });
+        return res.status(500).json({ message: e.message });
       }
     };
     getKeyboards();
