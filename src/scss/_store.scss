@@ -1,0 +1,95 @@
+.product {
+  background: $background-color;
+  height: max-content;
+  font-family: $typeFace;
+  display: block;
+  text-align: center;
+
+  &__category {
+    margin: auto;
+    color: $fontColor;
+    /* width: max-content; */
+    background: $navColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & select {
+      width: max-content;
+      outline: none;
+      background: $navColor;
+      border: none;
+      color: $fontColor;
+      padding: 10px;
+    }
+    & option {
+      /* background: $accentColor; */
+      outline: none;
+
+      &:focus,
+      :hover {
+        background: $fontColor;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  h1 {
+    width: max-content;
+    margin: auto;
+    color: $accentColor;
+  }
+  &__list {
+    margin: auto;
+    max-width: 1680px;
+  }
+  &__item {
+    animation: $loadIn;
+    display: inline-block;
+    max-width: 50vw;
+    vertical-align: top;
+    margin-bottom: 15px;
+  }
+  &__imgContainer {
+    width: 80%;
+    margin: 0 auto 15px auto;
+    img {
+      width: 100%;
+      margin: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__info {
+    width: 90%;
+    margin: auto;
+  }
+  &__name {
+    color: $accentColor;
+    font: normal normal 700 16px Helvetica;
+    letter-spacing: 0.1em;
+    word-wrap: break-word;
+    width: 100%;
+    text-align: center;
+  }
+  &__price {
+    font: normal normal 600 16px Helvetica;
+    letter-spacing: 0.1em;
+    padding: 10px;
+    color: $priceColor;
+    width: max-content;
+    margin: auto;
+  }
+  &__btn {
+    border-color: $accentColor;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    background: transparent;
+    font: normal normal 700 20px Helvetica;
+    letter-spacing: 0.2em;
+    height: 40px;
+    padding: 0 10px;
+    color: $accentColor;
+  }
+}

@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-// const mongo = require('../env.json');
+// const localURI = require('../env.json').MONGODB_URI;
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'Keybz';
@@ -21,29 +21,29 @@ const connectToDatabase = async (uri) => {
 };
 
 const queryDatabase = async (db) => {
-  const products = await db.collection("products").find({}).toArray();
+  const pokemon = await db.collection("products").find({}).toArray();
 
   return {
     statusCode: 200,
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(products),
+    body: JSON.stringify(pokemon),
   };
 };
 
-module.exports.handler = async (event, context, callback) => {
-  // otherwise the connection will never complete, since
-  // we keep the DB connection alive
-  context.callbackWaitsForEmptyEventLoop = false;
-
-  const db = await connectToDatabase(MONGODB_URI);
-  switch (event.httpMethod) {
-    case "GET":
-      return queryDatabase(db);
-    case "POST":
-      return pushToDatabase(db, JSON.parse(event.body));
-    default:
-      return { statusCode: 400 };
-  }
-};
+  
+  module.exports.handler = async (event, context) => {
+    // otherwise the connection will never complete, since
+    // we keep the DB connection alive
+    context.callbackWaitsForEmptyEventLoop = false;
+  
+    const db = await connectToDatabase(MONGODB_URI);
+  
+    switch (event.httpMethod) {
+      case "GET":
+        return queryDatabase(db);
+      default:
+        return { statusCode: 400 };
+    }
+  };

@@ -1,0 +1,54 @@
+//base
+$fontColor: #eff2dd;
+$background-color: #bdd7d6;
+$accentColor: #ee6b61;
+$priceColor: #516365;
+$navColor: #7f9d9d;
+$typeFace: "Righteous", cursive;
+$typeFace2: "Roboto";
+$loadIn: loadIn 0.8s;
+
+@keyframes loadIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: $background-color;
+  /* height: 100%; */
+
+  body {
+    background: $background-color;
+    /* min-height: 100%; */
+    & > #root {
+      background: $background-color;
+      height: 100vh;
+    }
+  }
+}
+
+//SCROLL BAR
+::-webkit-scrollbar {
+  width: 10px;
+
+  &-track {
+    background: rgb(34, 34, 34);
+  }
+  &-thumb {
+    background: rgb(82, 82, 82);
+
+    &:hover {
+      background: gray;
+    }
+  }
+}

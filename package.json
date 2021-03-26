@@ -1,31 +1,42 @@
 {
   "name": "keyboard-store",
-  "version": "1.0.0",
-  "description": "Keyboard E-commerce Backend",
-  "main": "server.js",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.21.0",
+    "mongodb": "^3.6.5",
+    "netlify-lambda": "^2.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1"
+  },
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "compile:sass": "node-sass src/scss/style.scss src/App.css -w",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "lambda-serve": "netlify-lambda serve functions",
     "lambda-build": "netlify-lambda build functions"
   },
-  "author": "Huy Chau",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "concurrently": "^5.3.0",
-    "config": "^3.3.3",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.5",
-    "mongoose": "^5.11.8",
-    "netlify-lambda": "^2.0.3"
+  "proxy": "http://localhost:5000",
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.6"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
