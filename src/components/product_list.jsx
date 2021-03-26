@@ -10,7 +10,7 @@ export const ProductList = (props) => {
   useEffect(() => {
     const getKeyboards = async (req, res) => {
       try {
-        const keyboards = await axios.get('https://keybz.netlify.app/getKeyboards/');
+        const keyboards = await axios.get('https://keybz.netlify.app/.netlify/functions/getKeyboards/');
         setProducts(keyboards.data);
       } catch (e) {
         console.log('something went wrong while getting data.');
