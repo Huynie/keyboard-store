@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
-// const localURI = require('../env.json').MONGODB_URI;
+const localURI = require('../env.json').MONGODB_URI;
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = localURI;
 const DB_NAME = 'Keybz';
 
 let cachedDb = null;
