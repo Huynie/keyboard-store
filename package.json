@@ -15,7 +15,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1"
   },
-  "proxy": "http://localhost:9000",
   "scripts": {
     "compile:sass": "node-sass src/scss/style.scss src/App.css -w",
     "start": "react-scripts start",
