@@ -4,10 +4,9 @@
   text-align: center;
   color: $priceColor;
   display: flex;
-  height: 100%;
+  min-height: 90vh;
   font: normal normal 500 16px $typeFace;
 
-  /* padding: 40vh 0 0 0; */
   & > div {
     width: 80%;
     margin: 10% auto;

@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <div className="footer">
         <hr />
-        <p>Huy Chau &copy; {new Date().getFullYear()}</p>
+        <p>Huy Chau &copy;{new Date().getFullYear()}</p>
         {/* <ul className="social">
           <li>
             <img src={"/images/FB_White.png"} alt="" />
