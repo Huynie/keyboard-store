@@ -9,11 +9,13 @@
     "axios": "^0.21.0",
     "mongodb": "^3.6.5",
     "netlify-lambda": "^2.0.3",
+    "node-sass": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1"
   },
+  "proxy": "http://localhost:9000",
   "scripts": {
     "compile:sass": "node-sass src/scss/style.scss src/App.css -w",
     "start": "react-scripts start",
@@ -23,7 +25,6 @@
     "lambda-serve": "netlify-lambda serve functions",
     "lambda-build": "netlify-lambda build functions"
   },
-  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": "react-app"
   },

@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
-// const localURI = require('../env.json').MONGODB_URI;
+const localURI = require('../env.json').MONGODB_URI;
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = localURI;
 const DB_NAME = 'Keybz';
 
 let cachedDb = null;
@@ -32,6 +32,16 @@ const queryDatabase = async (db) => {
   };
 };
 
+const axios = require("axios");
+const getKeyboards = async (req, res) => {
+  try {
+    const keyboards = await axios.get('http://localhost:9000/getKeyboards');
+    return keyboards.data
+  } catch (e) {
+    console.log('something went wrong while getting data.');
+    return res.status(500).json({ message: e.message });
+  }
+};
   
   module.exports.handler = async (event, context) => {
     // otherwise the connection will never complete, since
@@ -39,7 +49,7 @@ const queryDatabase = async (db) => {
     context.callbackWaitsForEmptyEventLoop = false;
   
     const db = await connectToDatabase(MONGODB_URI);
-  
+    
     switch (event.httpMethod) {
       case "GET":
         return queryDatabase(db);

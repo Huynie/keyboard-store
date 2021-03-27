@@ -17,8 +17,7 @@ html {
     background: #bdd7d6;
     /* min-height: 100%; */ }
     html body > #root {
-      background: #bdd7d6;
-      height: 100vh; }
+      background: #bdd7d6; }
 
 ::-webkit-scrollbar {
   width: 10px; }
@@ -351,14 +350,13 @@ header {
 
 .product {
   background: #bdd7d6;
-  height: max-content;
+  min-height: 90vh;
   font-family: "Righteous", cursive;
   display: block;
   text-align: center; }
   .product__category {
     margin: auto;
     color: #eff2dd;
-    /* width: max-content; */
     background: #7f9d9d;
     display: flex;
     justify-content: center;
@@ -371,7 +369,6 @@ header {
       color: #eff2dd;
       padding: 10px; }
     .product__category option {
-      /* background: $accentColor; */
       outline: none; }
       .product__category option:focus,
       .product__category option :hover {
@@ -826,39 +823,33 @@ header {
     .contact > div p {
       color: #ee6b61; }
 
-footer {
-  /* padding: 20px 50px; */
+.footer {
   font: normal normal 100 14px "Righteous", cursive;
   letter-spacing: 0.2em;
   background-color: #7f9d9d;
   color: #eff2dd;
   text-align: center;
   width: 100vw;
-  position: relative;
-  left: 0;
-  bottom: 0;
-  right: 0; }
-  footer hr {
-    display: block;
+  margin-top: 50px; }
+  .footer hr {
     height: 1px;
     width: 85%;
-    margin: 20px auto 0 auto;
+    margin: 0 auto;
     border: 0;
     background: #ee6b61; }
-  footer p {
+  .footer p {
     margin: auto;
     width: max-content;
-    position: relative;
-    top: 40px; }
-  footer .social {
+    padding: 50px 0; }
+  .footer .social {
     list-style: none;
     text-decoration: none;
     display: flex;
     justify-content: center;
     visibility: hidden; }
-    footer .social li {
+    .footer .social li {
       margin: 30px 30px; }
-    footer .social img {
+    .footer .social img {
       height: 30px;
       width: 30px; }
 

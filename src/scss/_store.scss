@@ -1,6 +1,6 @@
 .product {
   background: $background-color;
-  height: max-content;
+  min-height: 90vh;
   font-family: $typeFace;
   display: block;
   text-align: center;
@@ -8,7 +8,6 @@
   &__category {
     margin: auto;
     color: $fontColor;
-    /* width: max-content; */
     background: $navColor;
     display: flex;
     justify-content: center;
@@ -22,7 +21,6 @@
       padding: 10px;
     }
     & option {
-      /* background: $accentColor; */
       outline: none;
 
       &:focus,
