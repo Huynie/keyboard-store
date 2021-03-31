@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const SignIn = () => {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  
+  const submit = async (req, res) => {
+    try {
+      // const keyboards = await axios.get('https://keybz.netlify.app/.netlify/functions/getKeyboards');
+      const user = await axios.post('https://keybz.netlify.app/.netlify/functions/user', {email: email, password: password});
+      console.log(user, req, res);
+    } catch (e) {
+      console.log('something went wrong while getting data.');
+      // return res.status(500).json({ message: e.message });
+    }
+  };
 
-    console.log(email, password)
+  console.log(email, password)
   return (
     <div className="signIn">
-      <form className="formContainer">
+      <form className="formContainer" onSubmit={() => submit()}>
           <div className="inputContainer">
               <label htmlFor="username">Username</label>
               <input type="text" placeholder="Enter username" name="username" onChange={e => setEmail(e.target.value)}/>

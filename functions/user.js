@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
-// const localURI = require('../env.json').MONGODB_URI;
+const localURI = require('../env.json').MONGODB_URI;
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = localURI;
 const DB_NAME = 'Keybz';
 
 let cachedDb = null;
@@ -40,7 +40,7 @@ const pushToDatabase = async (db, data) => {
   
     if (user.name && user.password) {
       await db.collection("users").insertOne(data);
-      return { statusCode: 201 };
+      return { statusCode: 201, body: data };
     } else {
       return { statusCode: 422 };
     }
@@ -69,8 +69,7 @@ const pushToDatabase = async (db, data) => {
     switch (event.httpMethod) {
       case "GET":
         return queryDatabase(db);
-        case "POST":
-            console.log( JSON.parse(event.body))
+    case "POST":
         return pushToDatabase(db, JSON.parse(event.body));
       default:
         return { statusCode: 400 };

@@ -827,7 +827,7 @@ header {
 
 .signIn {
   padding-top: 10vh;
-  min-width: 90vh; }
+  min-height: 90vh; }
   .signIn .formContainer {
     display: flex;
     flex-direction: column;
