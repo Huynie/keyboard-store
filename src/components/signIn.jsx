@@ -15,7 +15,7 @@ const SignIn = () => {
               <label htmlFor="username">Password</label>
               <input type="text" placeholder="Enter password" name="password" onChange={e => setPassword(e.target.value)}/>
           </div>
-          <a href="#">Forgot Password</a>
+          <a href="https://keybz.netlify.app/signin">Forgot Password</a>
           <button type="submit">Sign In</button>
       </form>
     </div>
