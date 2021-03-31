@@ -1,1 +1,10 @@
-GET http://localhost:9000/getKeyboards
+GET http://localhost:9000/user
+###
+
+POST http://localhost:9000/user
+Content-Type: application/json
+
+{
+    "username": "test2",
+    "password": "test2"
+}

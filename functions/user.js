@@ -21,17 +21,44 @@ const connectToDatabase = async (uri) => {
 };
 
 const queryDatabase = async (db) => {
-  const keyboards = await db.collection("products").find({}).toArray();
+  const user = await db.collection("users").find({}).toArray();
 
   return {
     statusCode: 200,
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(keyboards),
+    body: JSON.stringify(user),
   };
 };
+
+const pushToDatabase = async (db, data) => {
+    const user = {
+      name: data.name,
+      password: data.password,
+    };
   
+    if (user.name && user.password) {
+      await db.collection("users").insertOne(data);
+      return { statusCode: 201 };
+    } else {
+      return { statusCode: 422 };
+    }
+};
+
+// const updateDatabase = async (db, data) => {
+//     const user = {
+//       name: data.name,
+//       password: data.password
+//     };
+  
+//     if (user.name && user.password) {
+//       await db.collection("users").updateOne(data);
+//       return { statusCode: 201 };
+//     } else {
+//       return { statusCode: 422 };
+//     }
+// };
   module.exports.handler = async (event, context) => {
     // otherwise the connection will never complete, since
     // we keep the DB connection alive
@@ -42,6 +69,9 @@ const queryDatabase = async (db) => {
     switch (event.httpMethod) {
       case "GET":
         return queryDatabase(db);
+        case "POST":
+            console.log( JSON.parse(event.body))
+        return pushToDatabase(db, JSON.parse(event.body));
       default:
         return { statusCode: 400 };
     }

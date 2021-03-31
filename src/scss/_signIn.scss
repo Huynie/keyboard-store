@@ -1,0 +1,62 @@
+.signIn {
+  padding-top: 10vh;
+  min-width: 90vh;
+
+  .formContainer {
+    // background-color: $navColor;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        height: 30px;
+        font: normal normal 700 16px $typeFace2;
+        color: $priceColor;
+      }
+
+      input {
+        outline: none;
+        border: 1px solid $navColor;
+        height: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 12px;
+        border-radius: 5px;
+      }
+    }
+
+    button {
+      border: 1px solid $accentColor;
+      background: $accentColor;
+      color: $fontColor;
+      border-radius: 5px;
+      font: normal normal 700 20px Helvetica;
+      letter-spacing: 0.2em;
+      height: 40px;
+      padding: 0 10px;
+      height: 50px;
+      width: 100%;
+      margin: 30px auto;
+      outline: none;
+
+      &:active {
+        background: rgb(216, 106, 106);
+      }
+    }
+    a {
+      color: $navColor;
+      font: normal normal 700 12px $typeFace2;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

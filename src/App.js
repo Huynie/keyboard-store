@@ -10,6 +10,7 @@ import Store from "./components/store";
 import Cart from "./components/cart";
 import about from "./components/about";
 import contact from "./components/contact";
+import SignIn from "./components/signIn";
 import Items from "./components/items";
 import Checkout from "./components/checkout";
 
@@ -50,6 +51,7 @@ export default function App() {
               )}
             />
             <Route path="/contact" component={contact} />
+            <Route path="/signin" component={SignIn} />
           </Switch>
         </ProductList>
       </Router>

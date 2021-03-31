@@ -825,6 +825,52 @@ header {
     .contact > div p {
       color: #ee6b61; }
 
+.signIn {
+  padding-top: 10vh;
+  min-width: 90vh; }
+  .signIn .formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto; }
+    .signIn .formContainer .inputContainer {
+      display: flex;
+      flex-direction: column; }
+      .signIn .formContainer .inputContainer label {
+        height: 30px;
+        font: normal normal 700 16px "Roboto";
+        color: #516365; }
+      .signIn .formContainer .inputContainer input {
+        outline: none;
+        border: 1px solid #7f9d9d;
+        height: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 12px;
+        border-radius: 5px; }
+    .signIn .formContainer button {
+      border: 1px solid #ee6b61;
+      background: #ee6b61;
+      color: #eff2dd;
+      border-radius: 5px;
+      font: normal normal 700 20px Helvetica;
+      letter-spacing: 0.2em;
+      height: 40px;
+      padding: 0 10px;
+      height: 50px;
+      width: 100%;
+      margin: 30px auto;
+      outline: none; }
+      .signIn .formContainer button:active {
+        background: #d86a6a; }
+    .signIn .formContainer a {
+      color: #7f9d9d;
+      font: normal normal 700 12px "Roboto";
+      text-decoration: none;
+      letter-spacing: 0.05em; }
+      .signIn .formContainer a:hover {
+        text-decoration: underline; }
+
 .footer {
   font: normal normal 100 14px "Righteous", cursive;
   letter-spacing: 0.2em;
