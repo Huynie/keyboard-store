@@ -51,7 +51,7 @@ export default function App() {
               )}
             />
             <Route path="/contact" component={contact} />
-            <Route path="/signin" component={SignIn} />
+            {/* <Route path="/signin" component={SignIn} /> */}
           </Switch>
         </ProductList>
       </Router>
