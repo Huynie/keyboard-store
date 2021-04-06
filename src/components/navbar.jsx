@@ -104,11 +104,11 @@ export default function NavBar() {
               CART ({totalItemsInCart})
             </Link>
           </li>
-          <li className="menu--items">
+          {/* <li className="menu--items">
             <Link to="/signIn" onClick={() => closeNav()}>
               Sign In
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="announcement">
