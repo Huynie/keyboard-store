@@ -11,7 +11,7 @@ export const ProductList = (props) => {
     const getKeyboards = async (req, res) => {
       try {
         const keyboards = await axios.get('https://keybz.netlify.app/.netlify/functions/getKeyboards');
-        // const keyboards = await axios.get('https://keybz.herokuapp.com/api/items');
+        // const keyboards = await axios.get('http://localhost:9000/getkeyboards');
         setProducts(keyboards.data);
       } catch (e) {
         console.log('something went wrong while getting data.');

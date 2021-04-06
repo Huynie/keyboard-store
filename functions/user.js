@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
-const localURI = require('../env.json').MONGODB_URI;
+// const localURI = require('../env.json').MONGODB_URI;
 
-const MONGODB_URI = localURI;
+const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'Keybz';
 
 let cachedDb = null;
@@ -27,6 +27,9 @@ const queryDatabase = async (db) => {
     statusCode: 200,
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Methods": "OPTION, GET, POST"
     },
     body: JSON.stringify(user),
   };
@@ -37,10 +40,18 @@ const pushToDatabase = async (db, data) => {
       name: data.name,
       password: data.password,
     };
-  
     if (user.name && user.password) {
       await db.collection("users").insertOne(data);
-      return { statusCode: 201, body: data };
+      return {
+        statusCode: 201,
+        // headers: {
+        //   // "Content-Type": "application/json",
+        //   'crossDomain': true,
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Access-Control-Allow-Headers": "Content-Type, Origin",
+        //   "Access-Control-Allow-Methods": "OPTION, POST, GET"
+        // },
+      };
     } else {
       return { statusCode: 422 };
     }
@@ -70,6 +81,7 @@ const pushToDatabase = async (db, data) => {
       case "GET":
         return queryDatabase(db);
     case "POST":
+      console.log(event.body, JSON.parse(event.body))
         return pushToDatabase(db, JSON.parse(event.body));
       default:
         return { statusCode: 400 };

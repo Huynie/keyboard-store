@@ -1,7 +1,19 @@
-GET https://keybz.netlify.app/.netlify/functions/user
+GET http://localhost:9000/user
 ###
 
-POST https://keybz.netlify.app/.netlify/functions/user
+POST http://localhost:9000/user
+Content-Type: application/json
+
+{
+    "username": "test3",
+    "password": "test3"
+}
+
+###
+GET http://localhost:9000/user
+
+###
+POST http://localhost:9000/user
 Content-Type: application/json
 
 {
